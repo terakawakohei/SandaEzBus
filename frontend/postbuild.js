@@ -1,7 +1,7 @@
 const path = require("path");
 const fs = require("fs-extra");
 
-const BUILD_DIR = path.join(__dirname, "./.next/server/pages");
+const BUILD_DIR = path.join(__dirname, "./.next");
 const PUBLIC_DIR = path.join(__dirname, "../src/main/resources/public");
 
 console.log("start postbuild script...");

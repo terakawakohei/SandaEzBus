@@ -21,7 +21,7 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	// implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'mysql:mysql-connector-java'
@@ -40,3 +40,7 @@ task buildReact(type: NpmTask) {
     args = ['build']
 }
 build.dependsOn buildReact
+war {
+    enabled = true
+    archiveName='SandaEzBus.war' // <-ここはプロジェクトに合わせて書き換えてください
+}
