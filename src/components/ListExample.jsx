@@ -6,6 +6,7 @@ import {
     UnorderedList,
     MdSettings,
     MdCheckCircle,
+    Button,
 } from '@chakra-ui/react'
 
 export const ListExample = () => {
@@ -13,7 +14,8 @@ export const ListExample = () => {
         <List spacing={3}>
             <ListItem>
                 <ListIcon as={MdCheckCircle} color='green.500' />
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit<br/>
+                <Button>これに行く</Button>
             </ListItem>
             <ListItem>
                 <ListIcon as={MdCheckCircle} color='green.500' />

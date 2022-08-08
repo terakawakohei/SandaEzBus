@@ -13,7 +13,6 @@ import {
   } from '@chakra-ui/react'
   import React, { useRef } from "react"
   import {Hero} from "../components/Hero"
-  import {BasicModal} from "../components/BasicModal"
   import {TransitionModal} from "../components/TransitionModal"
   import {SizeModalExample} from "../components/SizeModalExample"
   import { ListExample } from '../components/ListExample'

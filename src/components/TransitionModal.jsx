@@ -8,11 +8,11 @@ import {
     ModalCloseButton,
     Button,
     useDisclosure,
-    Box,
     Text,
     Center,
 } from '@chakra-ui/react'
 import React, { useRef } from "react"
+import { ListExample } from '../components/ListExample'
 
 export const TransitionModal = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
@@ -33,10 +33,11 @@ export const TransitionModal = () => {
             <ModalCloseButton />
             <ModalBody>
               <Text count={2} />
-              bbbbbbbbbbbbbbbbbba<br />
-              s<br />
-              a<br />
-              a<br />
+              Sample<br />
+              Text<br />
+              List Example below<br />
+              <br />
+              <ListExample />
             </ModalBody>
             <ModalFooter>
               <Button colorScheme='blue' mr={3}>
