@@ -12,7 +12,7 @@ import {
     Center,
 } from '@chakra-ui/react'
 import React, { useRef } from "react"
-import { ListExample } from './ListExample'
+
 
 export const TransitionModal = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
@@ -37,7 +37,6 @@ export const TransitionModal = () => {
               Text<br />
               List Example below<br />
               <br />
-              <ListExample />
             </ModalBody>
             <ModalFooter>
               <Button colorScheme='blue' mr={3}>

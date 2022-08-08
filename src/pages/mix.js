@@ -15,7 +15,6 @@ import {
   import {Hero} from "../components/Hero"
   import {TransitionModal} from "../components/TransitionModal"
   import {SizeModalExample} from "../components/SizeModalExample"
-  import { ListExample } from '../components/ListExample'
 
   export default function DrawerExample() {
     const { isOpen, onOpen, onClose } = useDisclosure()
@@ -27,7 +26,6 @@ import {
       {/* <BasicModal /> */}
       <TransitionModal />
       <SizeModalExample />
-      <ListExample />
       </>
     )
   }

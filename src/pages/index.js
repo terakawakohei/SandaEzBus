@@ -17,7 +17,7 @@ import { useState } from "react"
 export default function Home(data) {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [size, setSize] = useState('md')
-  const [spot, setSpot] = useState('')
+  const [spot, setSpot] = useState('century-praza')
 
   const handleSizeClick = (newSize) => {
     setSize(newSize)
@@ -36,25 +36,8 @@ export default function Home(data) {
   return (
     <div>
 
-      {/* {data.posts.map((item) => {
-        return (
-          <div key={item.id}>
-            <h1>{item.title}</h1>
-            <p>{item.body}</p>
-            <button onClick={onOpen}>Open Modal</button>
-          </div>
-        )
-      })
-      } */}
-
       <SVGMap onClickSpot={openModal} />
-      {/* {sizes.map((size) => (
-        <Button
-          onClick={() => handleSizeClick(size)}
-          key={size}
-          m={4}
-        >{`Open ${size} Modal`}</Button>
-      ))} */}
+
       <Modal onClose={onClose} size={size} isOpen={isOpen}>
         <ModalOverlay />
         <ModalContent>
@@ -63,7 +46,6 @@ export default function Home(data) {
           <ModalBody>
             {spot}
             {data.events[spot].map((item) => {
-              // console.log(item.name)
               return (
                 <div key={item.name}>
                   <br/>
@@ -83,9 +65,33 @@ export default function Home(data) {
 }
 
 export async function getServerSideProps() {
-  // const res = await fetch('https://jsonplaceholder.typicode.com/posts') // api call
-  const res = await fetch('http://localhost:5000/event') // api call
-  const events = await res.json()
+  // いったん消しとく
+  // const res = await fetch('http://localhost:5000/event') // api call
+  // const events = await res.json()
+
+  const events ={
+    "century-praza":[
+        {"name":"ev1", "date":"2022-07-02", "description":"test_ev1"},
+        {"name":"ev2", "date":"2022-07-03", "description":"test_ev2"},
+        {"name":"ev3", "date":"2022-07-07", "description":"test_ev3"}
+    ],
+    "community-hole":[
+        {"name":"ev4", "date":"2022-07-02", "description":"test_ev4"},
+        {"name":"ev5", "date":"2022-07-04", "description":"test_ev5"},
+        {"name":"ev6", "date":"2022-07-08", "description":"test_ev6"}
+    ],
+    "akasia-4":[
+        {"name":"ev7", "date":"2022-07-02", "description":"test_ev7"},
+        {"name":"ev8", "date":"2022-07-04", "description":"test_ev8"},
+        {"name":"ev9", "date":"2022-07-08", "description":"test_ev9"}
+    ],
+    "erumu-praza":[
+        {"name":"ev10", "date":"2022-07-02", "description":"test_ev10"},
+        {"name":"ev11", "date":"2022-07-03", "description":"test_ev11"},
+        {"name":"ev12", "date":"2022-07-07", "description":"test_ev12"}
+    ]}
+
+
   // console.log("fdsafdsafdsa")
   console.log(events)
   return { props: { events } }
