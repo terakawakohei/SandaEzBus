@@ -26,7 +26,7 @@ export default function Home(data) {
 
   const openModal = (spot) => {
     console.log(spot)
-    setSize('full')
+    setSize('md')
     setSpot(spot)
     onOpen()
   }
@@ -47,14 +47,14 @@ export default function Home(data) {
       })
       } */}
 
-      <SVGMap aaaaaaaaaaaaaaa={openModal} />
-      {sizes.map((size) => (
+      <SVGMap onClickSpot={openModal} />
+      {/* {sizes.map((size) => (
         <Button
           onClick={() => handleSizeClick(size)}
           key={size}
           m={4}
         >{`Open ${size} Modal`}</Button>
-      ))}
+      ))} */}
       <Modal onClose={onClose} size={size} isOpen={isOpen}>
         <ModalOverlay />
         <ModalContent>
@@ -62,6 +62,16 @@ export default function Home(data) {
           <ModalCloseButton />
           <ModalBody>
             {spot}
+            {data.events[spot].map((item) => {
+              // console.log(item.name)
+              return (
+                <div key={item.name}>
+                  <br/>
+                  <p>{item.date} : {item.description}</p>
+                  <br/>
+                </div>
+              )
+            })}
           </ModalBody>
           <ModalFooter>
             <Button onClick={onClose}>Close</Button>
@@ -73,10 +83,11 @@ export default function Home(data) {
 }
 
 export async function getServerSideProps() {
-  // const res = await fetch('https://jsonplaceholder.typicode.com/users') // api call
+  // const res = await fetch('https://jsonplaceholder.typicode.com/posts') // api call
   const res = await fetch('http://localhost:5000/event') // api call
-  const spot = await res.json()
-  console.log("fdsafdsafdsa")
-  return { props: { spot } }
+  const events = await res.json()
+  // console.log("fdsafdsafdsa")
+  console.log(events)
+  return { props: { events } }
 }
 
