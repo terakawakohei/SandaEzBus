@@ -22,9 +22,9 @@ export default function Map() {
         onOpen()
     }
 
-    const openModal = (e) => {
+    const openModal = (spot) => {
 
-        console.log(typeof e);
+        console.log(spot);
         setSize('full')
         onOpen()
     }
@@ -33,7 +33,7 @@ export default function Map() {
     return (
         <div>
             <ChakraProvider>
-                <MapSVG onClickSpot={(e) => openModal(e)} />
+                <MapSVG onClickSpot={(spot) => openModal(spot)} />
                 {sizes.map((size) => (
                     <Button
                         onClick={() => handleSizeClick(size)}
