@@ -13,7 +13,7 @@ import {
 } from '@chakra-ui/react'
 import React, { useRef } from "react"
 
-export const ModalExample = () => {
+export const BasicModal = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const finalRef = React.useRef(null)
   

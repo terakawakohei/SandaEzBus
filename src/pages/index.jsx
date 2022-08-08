@@ -10,7 +10,7 @@ import {
   DrawerContent,
   DrawerCloseButton,
 } from '@chakra-ui/react'
-import {ModalExample} from "../components/Modal"
+import {BasicModal} from "../components/BasicModal"
 
 export default function Home() {
   return (
@@ -30,7 +30,7 @@ export default function Home() {
             <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor="#f00" />
               <stop offset="100%" stopColor="#0f0" />
-              <ModalExample />
+              <BasicModal />
             </linearGradient>
           </defs>
         </svg>

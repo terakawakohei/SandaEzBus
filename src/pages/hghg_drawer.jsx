@@ -10,7 +10,6 @@ import {
   Button,
   useDisclosure,
   Input,
-  Box,
 } from '@chakra-ui/react'
 import React, { useRef } from "react"
 
