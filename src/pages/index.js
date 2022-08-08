@@ -13,7 +13,7 @@ import {
 
 import { ChakraProvider } from '@chakra-ui/react'
 import { useState } from "react";
-export default function Map() {
+export default function Home() {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [size, setSize] = useState('md')
   const [spot, setSpot] = useState('')
@@ -34,29 +34,27 @@ export default function Map() {
   const sizes = ['xs', 'sm', 'md', 'lg', 'xl', 'full']
   return (
     <div>
-      <ChakraProvider>
-        <SVGMap onClickSpot={openModal} />
-        {sizes.map((size) => (
-          <Button
-            onClick={() => handleSizeClick(size)}
-            key={size}
-            m={4}
-          >{`Open ${size} Modal`}</Button>
-        ))}
-        <Modal onClose={onClose} size={size} isOpen={isOpen}>
-          <ModalOverlay />
-          <ModalContent>
-            <ModalHeader>Modal Title</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody>
-              {spot}
-            </ModalBody>
-            <ModalFooter>
-              <Button onClick={onClose}>Close</Button>
-            </ModalFooter>
-          </ModalContent>
-        </Modal>
-      </ChakraProvider>
+      <SVGMap onClickSpot={openModal} />
+      {sizes.map((size) => (
+        <Button
+          onClick={() => handleSizeClick(size)}
+          key={size}
+          m={4}
+        >{`Open ${size} Modal`}</Button>
+      ))}
+      <Modal onClose={onClose} size={size} isOpen={isOpen}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Modal Title</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            {spot}
+          </ModalBody>
+          <ModalFooter>
+            <Button onClick={onClose}>Close</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
 
     </div>
   )
