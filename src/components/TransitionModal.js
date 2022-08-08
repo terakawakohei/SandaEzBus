@@ -12,7 +12,7 @@ import {
     Center,
 } from '@chakra-ui/react'
 import React, { useRef } from "react"
-import { ListExample } from '../components/ListExample'
+import { ListExample } from './ListExample'
 
 export const TransitionModal = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()

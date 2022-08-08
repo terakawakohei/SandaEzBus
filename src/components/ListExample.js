@@ -7,6 +7,7 @@ import {
     MdSettings,
     MdCheckCircle,
     Button,
+    Link,
 } from '@chakra-ui/react'
 
 export const ListExample = () => {
@@ -15,7 +16,7 @@ export const ListExample = () => {
             <ListItem>
                 <ListIcon as={MdCheckCircle} color='green.500' />
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit<br/>
-                <Button>これに行く</Button>
+                <Button as="a" href = "/test">これに行く</Button>
             </ListItem>
             <ListItem>
                 <ListIcon as={MdCheckCircle} color='green.500' />
