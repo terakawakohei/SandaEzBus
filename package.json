@@ -21,6 +21,7 @@
   "devDependencies": {
     "@svgr/cli": "^6.3.1",
     "eslint": "8.21.0",
-    "eslint-config-next": "12.2.4"
+    "eslint-config-next": "12.2.4",
+    "json-server": "^0.17.0"
   }
 }
