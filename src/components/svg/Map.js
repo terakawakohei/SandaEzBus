@@ -2,10 +2,7 @@ import * as React from "react";
 
 const SvgMap = (props) => {
   const { onClickSpot } = props;
-  const check = () => {
 
-    return props.onClickSpot;
-  }
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1920" {...props}>
       <defs>
@@ -31,7 +28,7 @@ const SvgMap = (props) => {
         }}
         id="map_svg__yurinoki-school"
       />
-      <g id="map_svg__century-praza" onClick={() => onClickSpot("century-praza")}>
+      <g id="map_svg__century-praza" onClick={(e) => { console.log(e); onClickSpot("century-praza") }}>
         <circle className="map_svg__cls-1" cx={1206.89} cy={590.2} r={130.04} />
         <path d="M1206.89 460.66c34.6 0 67.13 13.48 91.6 37.94 24.47 24.47 37.94 57 37.94 91.6s-13.47 67.13-37.94 91.6-57 37.94-91.6 37.94-67.13-13.48-91.6-37.94c-24.47-24.47-37.94-57-37.94-91.6s13.47-67.13 37.94-91.6 57-37.94 91.6-37.94m0-1c-72.1 0-130.54 58.45-130.54 130.54s58.45 130.54 130.54 130.54 130.54-58.45 130.54-130.54-58.45-130.54-130.54-130.54Z" />
         <text className="map_svg__cls-5" transform="translate(1012.14 618.9)">
@@ -42,7 +39,7 @@ const SvgMap = (props) => {
           </tspan>
         </text>
       </g>
-      <g id="map_svg__community-hole">
+      <g id="map_svg__community-hole" onClick={() => onClickSpot("community-hole")}>
         <circle
           className="map_svg__cls-1"
           cx={563.85}
@@ -57,7 +54,7 @@ const SvgMap = (props) => {
           </tspan>
         </text>
       </g>
-      <g id="map_svg__akasia-4">
+      <g id="map_svg__akasia-4" onClick={() => onClickSpot("akasia-4")}>
         <circle
           className="map_svg__cls-1"
           cx={856.41}
@@ -84,7 +81,7 @@ const SvgMap = (props) => {
           </tspan>
         </text>
       </g>
-      <g id="map_svg__erumu-praza">
+      <g id="map_svg__erumu-praza" onClick={() => onClickSpot("erumu-praza")}>
         <circle
           className="map_svg__cls-1"
           cx={1220.64}
@@ -99,7 +96,7 @@ const SvgMap = (props) => {
           </tspan>
         </text>
       </g>
-      <g id="map_svg__central-park">
+      <g id="map_svg__central-park" >
         <circle
           cx={1590.65}
           cy={1019.51}
