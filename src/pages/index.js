@@ -61,7 +61,9 @@ export default function Home(data) {
                         const lat = position.coords.latitude
                         const lon = position.coords.longitude
                         const url = makeUrl(lat + "," + lon, "34.8980847,135.1846334", item.date)
-                        window.open(url)
+                        if(window.open(url,"_blank")){}else{
+                          window.location.href=url
+                        }
                       }
                     )
                   }}>ここに行く</Button>
