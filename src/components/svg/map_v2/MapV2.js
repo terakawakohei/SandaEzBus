@@ -1173,7 +1173,7 @@ const SvgMapV2 = (props) => {
           d="M992.52 311.58c-.09.04-.18.07-.14.06.14-.05.14-.05.14-.06Z"
         />
       </g>
-      <g id="map_v2_svg__century-praza" onClick={(e) => { console.log(e); onClickSpot("century-praza") }}>
+      <g id="map_v2_svg__century-praza" style={{ cursor: "pointer" }} onClick={(e) => { ClickSpot("century-praza") }}>
         <path
           d="M584.88 276.13H315.47c-9.26 0-16.76-8.9-16.76-19.87v-67.74c0-10.98 7.5-19.87 16.76-19.87h269.41c9.26 0 16.76 8.9 16.76 19.87v67.74c0 10.98-7.5 19.87-16.76 19.87Z"
           style={{
@@ -1289,7 +1289,7 @@ const SvgMapV2 = (props) => {
           </tspan>
         </text>
       </g>
-      <g id="map_v2_svg__community-hole" onClick={() => onClickSpot("community-hole")}>
+      <g id="map_v2_svg__community-hole" onClick={() => onClickSpot("community-hole")} style={{ cursor: "pointer" }}>
         <path
           d="M553.72 919.82H259.93c-10.09 0-18.28-6.89-18.28-15.4v-52.47c0-8.5 8.18-15.4 18.28-15.4h293.79c10.09 0 18.28 6.89 18.28 15.4v52.47c0 8.5-8.18 15.4-18.28 15.4Z"
           style={{
@@ -1372,7 +1372,7 @@ const SvgMapV2 = (props) => {
           </tspan>
         </text>
       </g>
-      <g id="map_v2_svg__akasia-4" onClick={() => onClickSpot("akasia-4")}>
+      <g id="map_v2_svg__akasia-4" style={{ cursor: "pointer" }} onClick={() => onClickSpot("akasia-4")}>
         <path
           d="M329.14 682.84H87.9c-8.29 0-15.01-6.89-15.01-15.4v-52.47c0-8.5 6.72-15.4 15.01-15.4h241.25c8.29 0 15.01 6.89 15.01 15.4v52.47c0 8.5-6.72 15.4-15.01 15.4Z"
           style={{
@@ -1422,7 +1422,7 @@ const SvgMapV2 = (props) => {
           </tspan>
         </text>
       </g>
-      <g id="map_v2_svg__erumu-praza" onClick={() => onClickSpot("erumu-praza")}>
+      <g id="map_v2_svg__erumu-praza" onClick={() => onClickSpot("erumu-praza")} style={{ cursor: "pointer" }}>
         <path
           d="M896.04 507.83H654.79c-8.29 0-15.01-6.89-15.01-15.4v-52.47c0-8.5 6.72-15.4 15.01-15.4h241.25c8.29 0 15.01 6.89 15.01 15.4v52.47c0 8.5-6.72 15.4-15.01 15.4Z"
           style={{
@@ -1430,7 +1430,7 @@ const SvgMapV2 = (props) => {
             filter: "url(#map_v2_svg__drop-shadow-4)",
           }}
         />
-        <text className="map_v2_svg__cls-33" transform="translate(672.07 477.88)">
+        <text className="map_v2_svg__cls-33" transform="translate(672.07 477.88) " >
           <tspan
             x={0}
             y={0}
