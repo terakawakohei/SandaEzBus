@@ -1,4 +1,4 @@
-import SVGMapV2 from '../components/svg/map_v2/MapV2'
+import SVGMap from '../components/svg/Map'
 import {
   Modal,
   ModalOverlay,
@@ -25,7 +25,7 @@ export default function Home(data) {
       navigator.geolocation.getCurrentPosition(resolve, reject, options);
     });
   }
-  
+
 
   const openModal = (spot) => {
     console.log(spot)
@@ -39,7 +39,7 @@ export default function Home(data) {
   return (
     <div>
 
-      <SVGMapV2 onClickSpot={openModal} />
+      <SVGMap onClickSpot={openModal} />
 
       <Modal onClose={onClose} size={size} isOpen={isOpen}>
         <ModalOverlay />
