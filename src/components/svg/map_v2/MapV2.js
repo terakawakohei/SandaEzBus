@@ -1289,7 +1289,7 @@ const SvgMapV2 = (props) => {
           </tspan>
         </text>
       </g>
-      <g id="map_v2_svg__community-hole" onClick={() => onClickSpot("community-hole")} style={{ cursor: "pointer" }}>
+      <g id="map_v2_svg__community-hall" onClick={() => onClickSpot("community-hall")} style={{ cursor: "pointer" }}>
         <path
           d="M553.72 919.82H259.93c-10.09 0-18.28-6.89-18.28-15.4v-52.47c0-8.5 8.18-15.4 18.28-15.4h293.79c10.09 0 18.28 6.89 18.28 15.4v52.47c0 8.5-8.18 15.4-18.28 15.4Z"
           style={{
@@ -1509,7 +1509,7 @@ const SvgMapV2 = (props) => {
         <circle className="map_v2_svg__cls-40" cx={426.68} cy={540.15} r={46.7} />
         <path className="map_v2_svg__cls-32" d="m155.37 601.71 267.83-59.22" />
       </g>
-      <g id="map_v2_svg__comunity-hole-point">
+      <g id="map_v2_svg__comunity-hall-point">
         <circle
           className="map_v2_svg__cls-16"
           cx={434.49}

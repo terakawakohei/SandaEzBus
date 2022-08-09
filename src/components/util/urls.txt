@@ -1,0 +1,13 @@
+現在時刻出発
+神戸三宮センター街→六甲道
+・https://transit.yahoo.co.jp/search/result?from=神戸三宮センター街&to=六甲道&fromgid=MFNIinAdMtQ&togid=&flatlon=34.691829681396484,135.1936492919922,神戸三宮センター街&tlatlon=,,26591&via=&viacode=&y=2022&m=08&d=09&hh=09&m1=1&m2=4&type=1&ticket=ic&expkind=1&userpass=1&ws=3&s=0&al=1&shin=1&ex=1&hb=1&lb=1&sr=1
+・https://transit.yahoo.co.jp/search/result?from=神戸三宮センター街&to=六甲道
+
+緯度経度バージョン
+・https://transit.yahoo.co.jp/search/result?from=現在地&to=目的地&fromgid=&togid=&flatlon=34.691829681396484,135.1936492919922,&tlatlon=34.321829681396484,135.1936492919922
+
+10:14分到着（到着時間指定）
+神戸三宮センター街→六甲道
+・https://transit.yahoo.co.jp/search/result?from=神戸三宮センター街&to=六甲道&fromgid=MFNIinAdMtQ&togid=&flatlon=34.691829681396484,135.1936492919922,神戸三宮センター街&tlatlon=,,26591&via=&viacode=&y=2022&m=08&d=09&hh=10&m1=1&m2=4&type=1&ticket=ic&expkind=1&userpass=1&ws=3&s=0&al=1&shin=1&ex=1&hb=1&lb=1&sr=1
+・https://transit.yahoo.co.jp/search/result?from=神戸三宮センター街&to=六甲道&y=2022&m=08&d=09&hh=10&m1=1&m2=4
+

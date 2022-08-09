@@ -1,0 +1,8 @@
+{
+    "spot":{
+        "century-praza":{"spot_name":"センチュリープラザ前イオン","longitude":135.1855130,"latitude":34.9085038},
+        "community-hall":{"spot_name":"コミュニティホール前","longitude":135.1846334,"latitude":34.8980847},
+        "akasia-4":{"spot_name":"あかしあ台４丁目","longitude":135.184944,"latitude":34.902667},
+        "erumu-praza":{"spot_name":"えるむプラザ前","longitude":34.9031525,"latitude":135.1908527}
+    }
+}
