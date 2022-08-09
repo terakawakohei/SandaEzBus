@@ -14,6 +14,7 @@ import {
 // import { ChakraProvider } from '@chakra-ui/react'
 import { useState } from "react"
 import makeUrlCrrTime from '../components/util/yahoo_url_ana'
+import spot_info from '../data/spot_coord.json'
 
 export default function Home(data) {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -29,14 +30,14 @@ export default function Home(data) {
   }
   
   const openModal = (spot) => {
-    console.log(spot)
+    // console.log(spot)
     setSize('md')
     setSpot(spot)
     onOpen()
   }
 
   const sizes = ['xs', 'sm', 'md', 'lg', 'xl', 'full']
-  console.log(data)
+  // console.log(data)
   return (
     <div>
 
@@ -45,18 +46,25 @@ export default function Home(data) {
       <Modal onClose={onClose} size={size} isOpen={isOpen}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Modal Title</ModalHeader>
+          <ModalHeader>{spot_info.spot[spot].spot_name}</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            {spot}
             {data.events[spot].map((item) => {
               return (
-                <div key={item.name}>
+                <div key={item.title}>
                   <br />
                   <p>{item.date} : {item.description}</p>
                   <Button onClick={()=>{
-                    const url = makeUrlCrrTime("34.9085038,135.1855130", "34.8980847,135.1846334")
-                    window.open(url)
+                    getPosition().then((position)=>{
+                      // setCoords(position.coords)}
+                        // console.log(position.coords)
+                        const lat = position.coords.latitude
+                        const lon = position.coords.longitude
+                        // console.log(lat,lon)
+                        const url = makeUrlCrrTime(lat + "," + lon, "34.8980847,135.1846334")
+                      window.open(url)
+                      }
+                    )
                   }}>ここに行く</Button>
                   <br />
                 </div>
@@ -79,30 +87,30 @@ export async function getServerSideProps() {
 
   const events = {
     "century-praza": [
-      { "name": "ev1", "date": "2022-07-02", "description": "test_ev1" },
-      { "name": "ev2", "date": "2022-07-03", "description": "test_ev2" },
-      { "name": "ev3", "date": "2022-07-07", "description": "test_ev3" }
+      { "title": "ev1",  "date": "yyyy-MM-dd hh:mm", "spot":"century-praza", "description": "test_ev1" },
+      { "title": "ev2",  "date": "2022-07-03 12:12", "spot":"century-praza", "description": "test_ev2" },
+      { "title": "ev3",  "date": "2022-07-07 13:14", "spot":"century-praza", "description": "test_ev3" }
     ],
     "community-hall":[
-        {"name":"ev4", "date":"2022-07-02", "description":"test_ev4"},
-        {"name":"ev5", "date":"2022-07-04", "description":"test_ev5"},
-        {"name":"ev6", "date":"2022-07-08", "description":"test_ev6"}
+      { "title": "ev4",  "date": "yyyy-MM-dd hh:mm", "spot":"community-hall","description": "test_ev4" },
+      { "title": "ev5",  "date": "2022-07-04 13:45", "spot":"community-hall","description": "test_ev5" },
+      { "title": "ev6",  "date": "2022-07-08 13:44", "spot":"community-hall","description": "test_ev6" }
     ],
     "akasia-4": [
-      { "name": "ev7", "date": "2022-07-02", "description": "test_ev7" },
-      { "name": "ev8", "date": "2022-07-04", "description": "test_ev8" },
-      { "name": "ev9", "date": "2022-07-08", "description": "test_ev9" }
+      { "title": "ev7",  "date": "yyyy-MM-dd hh:mm", "spot":"akasia-4",      "description": "test_ev7" },
+      { "title": "ev8",  "date": "2022-07-04 11:45", "spot":"akasia-4",      "description": "test_ev8" },
+      { "title": "ev9",  "date": "2022-07-08 12:45", "spot":"akasia-4",      "description": "test_ev9" }
     ],
     "erumu-praza": [
-      { "name": "ev10", "date": "2022-07-02", "description": "test_ev10" },
-      { "name": "ev11", "date": "2022-07-03", "description": "test_ev11" },
-      { "name": "ev12", "date": "2022-07-07", "description": "test_ev12" }
+      { "title": "ev10", "date": "yyyy-MM-dd hh:mm", "spot":"erumu-praza",   "description": "test_ev10" },
+      { "title": "ev11", "date": "2022-07-03 12:35", "spot":"erumu-praza",   "description": "test_ev11" },
+      { "title": "ev12", "date": "2022-07-07 12:56", "spot":"erumu-praza",   "description": "test_ev12" }
     ]
   }
 
 
   // console.log("fdsafdsafdsa")
-  console.log(events)
+  // console.log(events)
   return { props: { events } }
 }
 
