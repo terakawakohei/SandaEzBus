@@ -13,9 +13,9 @@ import {
 
 // import { ChakraProvider } from '@chakra-ui/react'
 import { useState } from "react"
+import makeUrl from '../components/util/makeurl'
 import makeUrlCrrTime from '../components/util/makeurl_now'
 import spot_info from '../data/spot_coord.json'
-import makeUrl from '../components/util/makeurl'
 
 export default function Home(data) {
   const { isOpen, onOpen, onClose } = useDisclosure()
