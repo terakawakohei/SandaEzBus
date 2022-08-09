@@ -18,11 +18,14 @@ export default function Home(data) {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [size, setSize] = useState('md')
   const [spot, setSpot] = useState('century-praza')
+  const [coords, setCoords] = useState()
 
-  const handleSizeClick = (newSize) => {
-    setSize(newSize)
-    onOpen()
+  var getPosition = function (options) {
+    return new Promise(function (resolve, reject) {
+      navigator.geolocation.getCurrentPosition(resolve, reject, options);
+    });
   }
+  
 
   const openModal = (spot) => {
     console.log(spot)
