@@ -1173,7 +1173,7 @@ const SvgMapV2 = (props) => {
           d="M992.52 311.58c-.09.04-.18.07-.14.06.14-.05.14-.05.14-.06Z"
         />
       </g>
-      <g id="map_v2_svg__century-praza" style={{ cursor: "pointer" }} onClick={(e) => { ClickSpot("century-praza") }}>
+      <g id="map_v2_svg__century-praza" style={{ cursor: "pointer" }} onClick={() => onClickSpot("century-praza")}>
         <path
           d="M584.88 276.13H315.47c-9.26 0-16.76-8.9-16.76-19.87v-67.74c0-10.98 7.5-19.87 16.76-19.87h269.41c9.26 0 16.76 8.9 16.76 19.87v67.74c0 10.98-7.5 19.87-16.76 19.87Z"
           style={{
