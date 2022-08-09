@@ -58,9 +58,11 @@ export default function Home(data) {
                   <p>イベント内容：{item.description}</p>
                   <Button onClick={()=>{
                     getPosition().then((position)=>{
-                        const lat = position.coords.latitude
-                        const lon = position.coords.longitude
-                        const url = makeUrl(lat + "," + lon, "34.8980847,135.1846334", item.date)
+                        const flat = position.coords.latitude
+                        const flon = position.coords.longitude
+                        const tlat = spot_info.spot[spot].latitude
+                        const tlon = spot_info.spot[spot].longitude
+                        const url = makeUrl(flat + "," + flon, tlat + "," + tlon, item.date)
                         if(window.open(url,"_blank")){}else{
                           window.location.href=url
                         }
@@ -75,9 +77,11 @@ export default function Home(data) {
           <ModalFooter>
             <Button onClick={()=>{
                     getPosition().then((position)=>{
-                        const lat = position.coords.latitude
-                        const lon = position.coords.longitude
-                        const url = makeUrlCrrTime(lat + "," + lon, "34.8980847,135.1846334")
+                        const flat = position.coords.latitude
+                        const flon = position.coords.longitude
+                        const tlat = spot_info.spot[spot].latitude
+                        const tlon = spot_info.spot[spot].longitude
+                        const url = makeUrlCrrTime(flat + "," + flon, tlat + "," + tlon)
                         if(window.open(url,"_blank")){}else{
                           window.location.href=url
                         }
