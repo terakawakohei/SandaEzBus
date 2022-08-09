@@ -78,7 +78,9 @@ export default function Home(data) {
                         const lat = position.coords.latitude
                         const lon = position.coords.longitude
                         const url = makeUrlCrrTime(lat + "," + lon, "34.8980847,135.1846334")
-                        window.open(url)
+                        if(window.open(url,"_blank")){}else{
+                          window.location.href=url
+                        }
                       }
                     )
                   }}>今から行く</Button>
