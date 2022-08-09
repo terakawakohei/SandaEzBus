@@ -9,5 +9,5 @@ export default function makeUrl(from, to, time) {
     const min1 = time.substring(14, 15)
     const min2 = time.substring(15, 16)
     // console.log(yy + "-" + mm + "-" + dd + " " + hh + ":" + min1 + min2)
-    return url + from + ",&tlatlon=" + to + "&y=" + yy + "&m=" + mm + "&d=" + dd + "&hh=" + hh + "&m1=" + min1 + "&m2=" + min2;
+    return url + from + ",&tlatlon=" + to + "&y=" + yy + "&m=" + mm + "&d=" + dd + "&hh=" + hh + "&m1=" + min1 + "&m2=" + min2 + "&type=4";
 }
