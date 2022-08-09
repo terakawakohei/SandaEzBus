@@ -1,4 +1,4 @@
-import SVGMapV2 from '../components/svg/map_v2/MapV2'
+import SVGMap from '../components/svg/Map'
 import {
   Modal,
   ModalOverlay,
@@ -29,7 +29,7 @@ export default function Home(data) {
       navigator.geolocation.getCurrentPosition(resolve, reject, options);
     });
   }
-  
+
   const openModal = (spot) => {
     // console.log(spot)
     setSize('md')
@@ -42,7 +42,7 @@ export default function Home(data) {
   return (
     <div>
 
-      <SVGMapV2 onClickSpot={openModal} />
+      <SVGMap onClickSpot={openModal} />
 
       <Modal onClose={onClose} size={size} isOpen={isOpen}>
         <ModalOverlay />
@@ -56,17 +56,17 @@ export default function Home(data) {
                   <br />
                   <p>{item.date}</p>
                   <p>イベント内容：{item.description}</p>
-                  <Button onClick={()=>{
-                    getPosition().then((position)=>{
-                        const flat = position.coords.latitude
-                        const flon = position.coords.longitude
-                        const tlat = spot_info.spot[spot].latitude
-                        const tlon = spot_info.spot[spot].longitude
-                        const url = makeUrl(flat + "," + flon, tlat + "," + tlon, item.date)
-                        if(window.open(url,"_blank")){}else{
-                          window.location.href=url
-                        }
+                  <Button onClick={() => {
+                    getPosition().then((position) => {
+                      const flat = position.coords.latitude
+                      const flon = position.coords.longitude
+                      const tlat = spot_info.spot[spot].latitude
+                      const tlon = spot_info.spot[spot].longitude
+                      const url = makeUrl(flat + "," + flon, tlat + "," + tlon, item.date)
+                      if (window.open(url, "_blank")) { } else {
+                        window.location.href = url
                       }
+                    }
                     )
                   }}>ここに行く</Button>
                   <br /><br />
@@ -75,19 +75,19 @@ export default function Home(data) {
             })}
           </ModalBody>
           <ModalFooter>
-            <Button onClick={()=>{
-                    getPosition().then((position)=>{
-                        const flat = position.coords.latitude
-                        const flon = position.coords.longitude
-                        const tlat = spot_info.spot[spot].latitude
-                        const tlon = spot_info.spot[spot].longitude
-                        const url = makeUrlCrrTime(flat + "," + flon, tlat + "," + tlon)
-                        if(window.open(url,"_blank")){}else{
-                          window.location.href=url
-                        }
-                      }
-                    )
-                  }}>今から行く</Button>
+            <Button onClick={() => {
+              getPosition().then((position) => {
+                const flat = position.coords.latitude
+                const flon = position.coords.longitude
+                const tlat = spot_info.spot[spot].latitude
+                const tlon = spot_info.spot[spot].longitude
+                const url = makeUrlCrrTime(flat + "," + flon, tlat + "," + tlon)
+                if (window.open(url, "_blank")) { } else {
+                  window.location.href = url
+                }
+              }
+              )
+            }}>今から行く</Button>
             <Button onClick={onClose}> Close </Button>
           </ModalFooter>
         </ModalContent>
@@ -103,25 +103,26 @@ export async function getServerSideProps() {
 
   const events = {
     "century-praza": [
-      { "eid":"1",  "title": "ev1",  "date": "2022-08-12 11:45", "spot":"century-praza", "description": "test_ev1" },
-      { "eid":"2",  "title": "ev2",  "date": "2022-08-12 12:12", "spot":"century-praza", "description": "test_ev2" },
-      { "eid":"3",  "title": "ev3",  "date": "2022-08-12 13:14", "spot":"century-praza", "description": "test_ev3" }
+      { "eid": "1", "title": "ev1", "date": "2022-08-12 11:45", "spot": "century-praza", "description": "test_ev1" },
+      { "eid": "2", "title": "ev2", "date": "2022-08-12 12:12", "spot": "century-praza", "description": "test_ev2" },
+      { "eid": "3", "title": "ev3", "date": "2022-08-12 13:14", "spot": "century-praza", "description": "test_ev3" }
     ],
-    "community-hall":[
-      { "eid":"4",  "title": "ev4",  "date": "2022-08-12 11:45", "spot":"community-hall","description": "test_ev4" },
-      { "eid":"5",  "title": "ev5",  "date": "2022-08-12 13:45", "spot":"community-hall","description": "test_ev5" },
-      { "eid":"6",  "title": "ev6",  "date": "2022-08-12 13:59", "spot":"community-hall","description": "test_ev6" }
+    "community-hall": [
+      { "eid": "4", "title": "ev4", "date": "2022-08-12 11:45", "spot": "community-hall", "description": "test_ev4" },
+      { "eid": "5", "title": "ev5", "date": "2022-08-12 13:45", "spot": "community-hall", "description": "test_ev5" },
+      { "eid": "6", "title": "ev6", "date": "2022-08-12 13:59", "spot": "community-hall", "description": "test_ev6" }
     ],
     "akasia-4": [
-      { "eid":"7",  "title": "ev7",  "date": "2022-08-12 11:45", "spot":"akasia-4",      "description": "test_ev7" },
-      { "eid":"8",  "title": "ev8",  "date": "2022-08-13 13:50", "spot":"akasia-4",      "description": "test_ev8" },
-      { "eid":"9",  "title": "ev9",  "date": "2022-08-16 12:45", "spot":"akasia-4",      "description": "test_ev9" }
+      { "eid": "7", "title": "ev7", "date": "2022-08-12 11:45", "spot": "akasia-4", "description": "test_ev7" },
+      { "eid": "8", "title": "ev8", "date": "2022-08-13 13:50", "spot": "akasia-4", "description": "test_ev8" },
+      { "eid": "9", "title": "ev9", "date": "2022-08-16 12:45", "spot": "akasia-4", "description": "test_ev9" }
     ],
     "erumu-praza": [
-      { "eid":"10", "title": "ev10", "date": "2022-08-12 11:45", "spot":"erumu-praza",   "description": "test_ev10" },
-      { "eid":"11", "title": "ev11", "date": "2022-08-12 12:35", "spot":"erumu-praza",   "description": "test_ev11" },
-      { "eid":"12", "title": "ev12", "date": "2022-08-12 12:56", "spot":"erumu-praza",   "description": "test_ev12" }
-    ]
+      { "eid": "10", "title": "ev10", "date": "2022-08-12 11:45", "spot": "erumu-praza", "description": "test_ev10" },
+      { "eid": "11", "title": "ev11", "date": "2022-08-12 12:35", "spot": "erumu-praza", "description": "test_ev11" },
+      { "eid": "12", "title": "ev12", "date": "2022-08-12 12:56", "spot": "erumu-praza", "description": "test_ev12" }
+    ],
+    "sanda-municipal-hospital": []
   }
 
 
