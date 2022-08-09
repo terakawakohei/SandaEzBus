@@ -13,16 +13,12 @@ import {
 
 // import { ChakraProvider } from '@chakra-ui/react'
 import { useState } from "react"
+import makeUrlCrrTime from '../components/util/yahoo_url_ana'
 
 export default function Home(data) {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [size, setSize] = useState('md')
   const [spot, setSpot] = useState('century-praza')
-
-  const handleSizeClick = (newSize) => {
-    setSize(newSize)
-    onOpen()
-  }
 
   const openModal = (spot) => {
     console.log(spot)
@@ -50,6 +46,10 @@ export default function Home(data) {
                 <div key={item.name}>
                   <br />
                   <p>{item.date} : {item.description}</p>
+                  <Button onClick={()=>{
+                    const url = makeUrlCrrTime("34.9085038,135.1855130", "34.8980847,135.1846334")
+                    window.open(url)
+                  }}>ここに行く</Button>
                   <br />
                 </div>
               )

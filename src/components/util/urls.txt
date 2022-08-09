@@ -5,8 +5,6 @@
 
 緯度経度バージョン
 ・https://transit.yahoo.co.jp/search/result?from=現在地&to=目的地&fromgid=&togid=&flatlon=34.691829681396484,135.1936492919922,&tlatlon=34.321829681396484,135.1936492919922
-・https://transit.yahoo.co.jp/search/result?from=現在地&to=&fromgid=&togid=&flatlon=34.691829681396484,135.1936492919922,&tlatlon=34.321829681396484,135.1936492919922
-
 
 10:14分到着（到着時間指定）
 神戸三宮センター街→六甲道

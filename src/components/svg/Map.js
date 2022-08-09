@@ -39,7 +39,7 @@ const SvgMap = (props) => {
           </tspan>
         </text>
       </g>
-      <g id="map_svg__community-hole" onClick={() => onClickSpot("community-hole")}>
+      <g id="map_svg__community-hall" onClick={() => onClickSpot("community-hall")}>
         <circle
           className="map_svg__cls-1"
           cx={563.85}
