@@ -10,7 +10,7 @@ export default function Header() {
             justify="space-between"
             wrap="wrap"
             padding="1.5rem"
-            bg="teal.500"
+            // bg="teal.500"
             color="black"
         >
             {/* <Flex align="center" mr={5}>
@@ -29,6 +29,17 @@ export default function Header() {
                         <a>Home</a>
                     </Link>
                 </Button>
+            </Box>
+     
+            <Box>
+                <Text
+                    bgGradient='linear(to-l, #7928CA, #FF0080)'
+                    bgClip='text'
+                    fontSize='20px'
+                    fontWeight='extrabold'
+                    >
+                    Sanda Ez Bus
+                    </Text>
             </Box>
         </Flex>
 
