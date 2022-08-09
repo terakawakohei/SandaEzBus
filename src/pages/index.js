@@ -121,7 +121,8 @@ export async function getServerSideProps() {
       { "eid":"10", "title": "ev10", "date": "2022-08-12 11:45", "spot":"erumu-praza",   "description": "test_ev10" },
       { "eid":"11", "title": "ev11", "date": "2022-08-12 12:35", "spot":"erumu-praza",   "description": "test_ev11" },
       { "eid":"12", "title": "ev12", "date": "2022-08-12 12:56", "spot":"erumu-praza",   "description": "test_ev12" }
-    ]
+    ],
+    "sanda-municipal-hospital":[]
   }
 
 
