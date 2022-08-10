@@ -64,11 +64,11 @@ export default function Home(data) {
           <ModalBody>
             {data.events[spot].map((item) => {
               return (
-                <div key={item.title}>
+                <Box key={item.title} textAlign="center">
                   <br />
-                  <p>{item.date}</p>
                   <p>イベント内容：{item.description}</p>
-                  <Button onClick={() => {
+                  <p>{item.date}</p>
+                  <Button colorScheme='messenger' onClick={() => {
                     getPosition().then((position) => {
                       const flat = position.coords.latitude
                       const flon = position.coords.longitude
@@ -82,12 +82,13 @@ export default function Home(data) {
                     )
                   }}>ここに行く</Button>
                   <br /><br />
-                </div>
+                </Box>
               )
             })}
           </ModalBody>
+            <Center>
           <ModalFooter>
-            <Button onClick={() => {
+            <Button colorScheme='messenger' onClick={() => {
               getPosition().then((position) => {
                 const flat = position.coords.latitude
                 const flon = position.coords.longitude
@@ -100,8 +101,9 @@ export default function Home(data) {
               }
               )
             }}>今から行く</Button>
-            <Button onClick={onClose}> Close </Button>
+            {/* <Button onClick={onClose}> Close </Button> */}
           </ModalFooter>
+            </Center>
         </ModalContent>
       </Modal>
     </div>
