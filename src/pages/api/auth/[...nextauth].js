@@ -1,4 +1,5 @@
 import NextAuth from 'next-auth'
+import NetlifyProvider from "next-auth/providers/netlify";
 import CredentialsProvider from "next-auth/providers/credentials";
 
 // credentials の情報から、ログイン可能か判定してユーザー情報を返す関数
@@ -21,7 +22,7 @@ const findUserByCredentials = credentials => {
 const options = {
   // 認証プロバイダー
   providers: [
-    CredentialsProvider({
+    NetlifyProvider({
       // 表示名 ('Sign in with ...' に表示される)
       name: "Email",
       credentials: {
@@ -38,9 +39,6 @@ const options = {
 	  // nullまたはfalseを返すと、認証を拒否する
           return Promise.resolve(null)
 	  
-	  // ErrorオブジェクトやリダイレクトURLを指定してコールバックをリジェクトすることもできます。
-          // return Promise.reject(new Error('error message')) // エラーページにリダイレクト
-          // return Promise.reject('/path/to/redirect')        // URL にリダイレクト
         }
       },
     }),
