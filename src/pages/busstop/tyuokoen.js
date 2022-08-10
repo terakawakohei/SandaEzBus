@@ -9,14 +9,9 @@ import {
     List,
     ListItem,
     ListIcon,
-    OrderedList,
-    UnorderedList,
 } from '@chakra-ui/react'
 
-import { 
-    MdSettings,
-    MdCheckCircle,
- } from 'react-icons/md'
+import { MdCheckCircle } from 'react-icons/md'
 
 export default function Koen (){
     return (
