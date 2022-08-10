@@ -13,17 +13,7 @@ export default function Header() {
             // bg="teal.500"
             color="black"
         >
-            {/* <Flex align="center" mr={5}>
-                <Heading as="h1" size="lg" letterSpacing={"-.1rem"}>
-                    Chakra UI
-                </Heading>
-
-            </Flex> */}
-
-
-
-            <Box
-            >
+            <Box>
                 <Button bg="transparent" border="1px">
                     <Link href="/">
                         <a>Home</a>
