@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   env: {
-    NEXTAUTH_URL: "https://deploy-preview-53--spiffy-dolphin-ef62d9.netlify.app",
+    // NEXTAUTH_URL: "https://deploy-preview-53--spiffy-dolphin-ef62d9.netlify.app",
     USER_EMAIL:"admin",
     USER_PASSWORD:"1234"
   },
