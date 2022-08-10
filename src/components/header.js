@@ -10,7 +10,6 @@ export default function Header() {
             justify="space-between"
             wrap="wrap"
             padding="1.5rem"
-            // bg="teal.500"
             color="black"
         >
             <Box>
