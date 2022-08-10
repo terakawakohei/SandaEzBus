@@ -14,7 +14,7 @@ import { useEvent } from '../components/hooks/useEvent';
 import moment from 'moment';
 
 export default function Admin() {
-    const { setEvent, setDescription, setPlace, date, setDate, send } = useEvent();
+    const { setTitle, setDescription, setSid, date, setDate, send } = useEvent();
     const Today = new Date();
     registerLocale('ja', ja);
 
@@ -22,7 +22,7 @@ export default function Admin() {
     return (
         <Box margin={"5px"}>
             <FormLabel>イベント名</FormLabel>
-            <Input type="text" onChange={(e) => setEvent(e.target.value)} />
+            <Input type="text" onChange={(e) => setTitle(e.target.value)} />
             <FormLabel>開催日時</FormLabel>
             <field>
                 <DatePicker
@@ -31,7 +31,7 @@ export default function Admin() {
                     locale='ja'
                     showTimeSelect
                     onChange={selectedDate => {
-                        console.log(JSON.stringify(selectedDate));
+                        // console.log(JSON.stringify(selectedDate));
                         console.log(moment(selectedDate).format("YYYY-MM-DD HH:mm"))
                         setDate(selectedDate)
                     }}
@@ -39,9 +39,9 @@ export default function Admin() {
             </field>
 
             <FormLabel>開催場所</FormLabel>
-            <Select placeholder='開催場所を選択してください' onChange={(e) => setPlace(e.target.value)} >
-                <option value='option1'>中央公園前</option>
-                <option value='option2'>えるむプラザ</option>
+            <Select placeholder='開催場所を選択してください' onChange={(e) => setSid(e.target.value)} >
+                <option value='century-praza'>センチュリープラザ前イオン</option>
+                <option value='community-hall'>コミュニティホール前</option>
             </Select>
             <FormLabel>イベントの詳細</FormLabel>
             <Textarea onChange={(e) => setDescription(e.target.value)} />
