@@ -1,4 +1,5 @@
 import SVGMap from '../components/svg/Map'
+import Link from 'next/link';
 import {
   Modal,
   ModalOverlay,
@@ -8,6 +9,9 @@ import {
   ModalBody,
   ModalCloseButton,
   Button,
+  Center,
+  Box,
+  Text,
   useDisclosure
 } from '@chakra-ui/react'
 
@@ -43,6 +47,16 @@ export default function Home(data) {
     <div>
 
       <SVGMap onClickSpot={openModal} />
+      <Center>
+          <Link href="/busstop">
+        <Button w='80vw' h='20vh' margin="5px" boxShadow="lg" color="#7928CA" borderRadius="20px">
+            <Text bg='#7928CA'
+                  bgClip='text'
+                  fontSize='20px'
+                  fontWeight='extrabold'>乗り換え場所を確認する</Text>
+        </Button>
+          </Link>
+      </Center>
 
       <Modal onClose={onClose} size={size} isOpen={isOpen}>
         <ModalOverlay />
