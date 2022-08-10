@@ -1,4 +1,5 @@
 import SVGMap from '../components/svg/Map'
+import Link from 'next/link';
 import {
   Modal,
   ModalOverlay,
@@ -8,6 +9,10 @@ import {
   ModalBody,
   ModalCloseButton,
   Button,
+  Center,
+  Box,
+  Text,
+  Divider,
   useDisclosure
 } from '@chakra-ui/react'
 
@@ -19,7 +24,6 @@ import spot_info from '../data/spot_coord.json'
 
 export default function Home(data) {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const [size, setSize] = useState('md')
   const [spot, setSpot] = useState('century-praza')
 
   var getPosition = function (options) {
@@ -29,7 +33,6 @@ export default function Home(data) {
   }
 
   const openModal = (spot) => {
-    // console.log(spot)
     setSize('xs')
     setSpot(spot)
     console.log(spot_info.spot[spot])
@@ -41,20 +44,33 @@ export default function Home(data) {
     <div>
 
       <SVGMap onClickSpot={openModal} />
+      <Center>
+          <Link href="/busstop">
+        <Button w='80vw' h='20vh' margin="5px" boxShadow="lg" color="#7928CA" borderRadius="20px">
+            <Text bg='#7928CA'
+                  bgClip='text'
+                  fontSize='20px'
+                  fontWeight='extrabold'>乗り換え場所を確認する</Text>
+        </Button>
+          </Link>
+      </Center>
 
-      <Modal onClose={onClose} size={size} isOpen={isOpen}>
+      <Modal onClose={onClose} size={"sm"} isOpen={isOpen} margin={5}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>{spot_info.spot[spot].spot_name}</ModalHeader>
+          <Divider/>
           <ModalCloseButton />
           <ModalBody>
             {data.events[spot].map((item) => {
               return (
-                <div key={item.title}>
+                <Box key={item.title} textAlign="center">
                   <br />
-                  <p>{item.date}</p>
+                  <Text fontWeight='bold'>
                   <p>イベント内容：{item.description}</p>
-                  <Button onClick={() => {
+                  <p>{item.date}</p>
+                  </Text>
+                  <Button colorScheme='messenger' onClick={() => {
                     getPosition().then((position) => {
                       const flat = position.coords.latitude
                       const flon = position.coords.longitude
@@ -68,12 +84,14 @@ export default function Home(data) {
                     )
                   }}>ここに行く</Button>
                   <br /><br />
-                </div>
+                  <Divider/>
+                </Box>
               )
             })}
           </ModalBody>
+            <Center>
           <ModalFooter>
-            <Button onClick={() => {
+            <Button colorScheme='messenger' onClick={() => {
               getPosition().then((position) => {
                 const flat = position.coords.latitude
                 const flon = position.coords.longitude
@@ -86,8 +104,9 @@ export default function Home(data) {
               }
               )
             }}>今から行く</Button>
-            <Button onClick={onClose}> Close </Button>
+            {/* <Button onClick={onClose}> Close </Button> */}
           </ModalFooter>
+            </Center>
         </ModalContent>
       </Modal>
     </div>

@@ -19,7 +19,7 @@ export default function Admin() {
     registerLocale('ja', ja);
 
     return (
-        <Box margin={"5px"}>
+        <Box margin={5}>
             <FormLabel>イベント名</FormLabel>
             <Input type="text" onChange={(e) => setEvent(e.target.value)} />
             <FormLabel>開催日時</FormLabel>
