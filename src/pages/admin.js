@@ -20,7 +20,7 @@ export default function Admin() {
 
 
     return (
-        <Box margin={"5px"}>
+        <Box margin={5}>
             <FormLabel>イベント名</FormLabel>
             <Input type="text" onChange={(e) => setTitle(e.target.value)} />
             <FormLabel>開催日時</FormLabel>
