@@ -12,6 +12,7 @@ import {
   Center,
   Box,
   Text,
+  Divider,
   useDisclosure
 } from '@chakra-ui/react'
 
@@ -60,14 +61,17 @@ export default function Home(data) {
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>{spot_info.spot[spot].spot_name}</ModalHeader>
+          <Divider/>
           <ModalCloseButton />
           <ModalBody>
             {data.events[spot].map((item) => {
               return (
                 <Box key={item.title} textAlign="center">
                   <br />
+                  <Text fontWeight='bold'>
                   <p>イベント内容：{item.description}</p>
                   <p>{item.date}</p>
+                  </Text>
                   <Button colorScheme='messenger' onClick={() => {
                     getPosition().then((position) => {
                       const flat = position.coords.latitude
@@ -82,6 +86,7 @@ export default function Home(data) {
                     )
                   }}>ここに行く</Button>
                   <br /><br />
+                  <Divider/>
                 </Box>
               )
             })}
