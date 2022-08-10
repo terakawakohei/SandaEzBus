@@ -23,7 +23,6 @@ import spot_info from '../data/spot_coord.json'
 
 export default function Home(data) {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const [size, setSize] = useState('md')
   const [spot, setSpot] = useState('century-praza')
   const [coords, setCoords] = useState()
 
@@ -36,7 +35,6 @@ export default function Home(data) {
 
   const openModal = (spot) => {
     // console.log(spot)
-    setSize('md')
     setSpot(spot)
     onOpen()
   }
@@ -58,7 +56,7 @@ export default function Home(data) {
           </Link>
       </Center>
 
-      <Modal onClose={onClose} size={size} isOpen={isOpen}>
+      <Modal onClose={onClose} size={"sm"} isOpen={isOpen} margin={5}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>{spot_info.spot[spot].spot_name}</ModalHeader>
