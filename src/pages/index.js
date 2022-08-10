@@ -33,7 +33,6 @@ export default function Home(data) {
   }
 
   const openModal = (spot) => {
-    setSize('xs')
     setSpot(spot)
     console.log(spot_info.spot[spot])
     onOpen()
