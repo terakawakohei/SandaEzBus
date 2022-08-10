@@ -25,8 +25,6 @@ import spot_info from '../data/spot_coord.json'
 export default function Home(data) {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [spot, setSpot] = useState('century-praza')
-  const [coords, setCoords] = useState()
-
 
   var getPosition = function (options) {
     return new Promise(function (resolve, reject) {
@@ -35,13 +33,12 @@ export default function Home(data) {
   }
 
   const openModal = (spot) => {
-    // console.log(spot)
     setSpot(spot)
+    console.log(spot_info.spot[spot])
     onOpen()
   }
 
   const sizes = ['xs', 'sm', 'md', 'lg', 'xl', 'full']
-  // console.log(data)
   return (
     <div>
 

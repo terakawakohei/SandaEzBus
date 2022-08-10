@@ -1,28 +1,49 @@
 import Image from 'next/image'
 import {
+    AspectRatio,
+    Button,
     Box,
     Center,
-    Stack,
-    Text,
-    Heading,
     Flex,
+    Heading,
     List,
     ListItem,
     ListIcon,
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalFooter,
+    ModalBody,
+    ModalCloseButton,
+    Stack,
+    Text,
+    useDisclosure,
 } from '@chakra-ui/react'
 
+import { useState } from "react"
 import { MdCheckCircle } from 'react-icons/md'
+import bus_info from '../../data/bus_station_data.json'
 
 export default function Yuri (){
+    const [bus_station, setSpot] = useState('yurinoki-i')
+    const { isOpen, onOpen, onClose } = useDisclosure()
+
     return (
     <Center>
         <Flex p="6" w="full" maxW="400px" alignItems='center' justifyContent='center' direction='column'>
-            <Box bg="white" boxShadow="lg" rounded="xl" p="6" overflow="hidden" marginBottom='10'>
+            <Box bg="white" boxShadow="lg" rounded="xl" p="6" overflow="hidden" marginBottom='10' onClick={() => 
+                {
+                    setSpot("yurinoki-i")
+                    console.log(bus_info.bus_station_info[bus_station])
+                    onOpen()
+                }}>
                 <Box h="200px" mt="-6" mx="-6" pos="relative">
                     <Image
                     src="/assets/yuri-i.jpg"
                     fallbacksrc="https://via.placeholder.com/300x200"
                     layout="fill"
+                    alt='demo'
                     />
                 </Box>
                 <Stack>
@@ -58,12 +79,18 @@ export default function Yuri (){
                     </List>
                 </Stack>
             </Box>
-            <Box bg="white" boxShadow="lg" rounded="xl" p="6" overflow="hidden" marginBottom='10'>
+            <Box bg="white" boxShadow="lg" rounded="xl" p="6" overflow="hidden" marginBottom='10' onClick={() => 
+                {
+                    setSpot("yurinoki-r")
+                    console.log(bus_info.bus_station_info[bus_station])
+                    onOpen()
+                }}>
                 <Box h="200px" mt="-6" mx="-6" pos="relative">
                     <Image
                     src="/assets/yuri-ro.jpg"
                     fallbacksrc="https://via.placeholder.com/300x200"
                     layout="fill"
+                    alt='demo'
                     />
                 </Box>
                 <Stack>
@@ -85,12 +112,18 @@ export default function Yuri (){
                     </List>
                 </Stack>
             </Box>
-            <Box bg="white" boxShadow="lg" rounded="xl" p="6" overflow="hidden" marginBottom='10'>
+            <Box bg="white" boxShadow="lg" rounded="xl" p="6" overflow="hidden" marginBottom='10' onClick={() => 
+                {
+                    setSpot("yurinoki-h")
+                    console.log(bus_info.bus_station_info[bus_station])
+                    onOpen()
+                }}>
                 <Box h="200px" mt="-6" mx="-6" pos="relative">
                     <Image
                     src="/assets/yuri-ha.jpg"
                     fallbacksrc="https://via.placeholder.com/300x200"
                     layout="fill"
+                    alt='demo'
                     />
                 </Box>
                 <Stack>
@@ -116,7 +149,33 @@ export default function Yuri (){
                     </List>
                 </Stack>
             </Box>
+            <Button as="a" href='/busstop' colorScheme={"blue"} variant={"outline"}>戻る</Button>
         </Flex>
+        <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>{bus_info.bus_station_info[bus_station].name}</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+          <AspectRatio>
+                <iframe 
+                src={bus_info.bus_station_info[bus_station].emb_src}
+                width="100%"
+                height="100%" 
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                >
+                </iframe>
+            </AspectRatio>
+          </ModalBody>
+
+          <ModalFooter>
+            <Button colorScheme='blue' mr={3} onClick={onClose}>
+              閉じる
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+        </Modal>
     </Center>
     )
 }
