@@ -6,7 +6,17 @@ import {
     Text,
     Heading,
     Flex,
+    List,
+    ListItem,
+    ListIcon,
+    OrderedList,
+    UnorderedList,
 } from '@chakra-ui/react'
+
+import { 
+    MdSettings,
+    MdCheckCircle,
+ } from 'react-icons/md'
 
 export default function Koen (){
     return (
@@ -16,7 +26,7 @@ export default function Koen (){
                 <Box h="200px" mt="-6" mx="-6" pos="relative">
                     <Image
                     src="/assets/koen-i.jpg"
-                    fallbackSrc="https://via.placeholder.com/300x200"
+                    fallbacksrc="https://via.placeholder.com/300x200"
                     layout="fill"
                     />
                 </Box>
@@ -29,20 +39,35 @@ export default function Koen (){
                     >
                     </Text>
                     <Heading color="gray.700" fontSize="lg" fontFamily="body">
-                    中央公園前（イ）
+                        中央公園前（イ）
                     </Heading>
-                    <Text color="gray.500" fontSize="sm">
-                    Chakra UI is a simple, modular and accessible component library that
-                    gives you the building blocks you need to build your React
-                    applications.
-                    </Text>
+                    <List spacing={3}>
+                    <ListItem>
+                        <Text color="gray.500" fontSize="sm">
+                        <ListIcon as={MdCheckCircle} color='green.500' />
+                            中央公園噴水広場の南側の道路沿いにあるバス停
+                        </Text>
+                    </ListItem>
+                    <ListItem>
+                        <Text color="gray.500" fontSize="sm">
+                        <ListIcon as={MdCheckCircle} color='green.500' />
+                            中央公園南側を東から西側に通っている道路の道路沿いにある
+                        </Text>
+                    </ListItem>
+                    <ListItem>
+                        <Text color="gray.500" fontSize="sm">
+                        <ListIcon as={MdCheckCircle} color='green.500' />
+                            コミュニティホール、えるむプラザ、あかしあ台4丁目方面行のバスが走っている
+                        </Text>
+                    </ListItem>
+                    </List>
                 </Stack>
             </Box>
             <Box bg="white" boxShadow="lg" rounded="xl" p="6" overflow="hidden" marginBottom='10'>
                 <Box h="200px" mt="-6" mx="-6" pos="relative">
                     <Image
                     src="/assets/koen-ro.jpg"
-                    fallbackSrc="https://via.placeholder.com/300x200"
+                    fallbacksrc="https://via.placeholder.com/300x200"
                     layout="fill"
                     />
                 </Box>
@@ -55,20 +80,35 @@ export default function Koen (){
                     >
                     </Text>
                     <Heading color="gray.700" fontSize="lg" fontFamily="body">
-                    中央公園前（ロ）
+                        中央公園前（ロ）
                     </Heading>
-                    <Text color="gray.500" fontSize="sm">
-                    Chakra UI is a simple, modular and accessible component library that
-                    gives you the building blocks you need to build your React
-                    applications.
-                    </Text>
+                    <List spacing={3}>
+                    <ListItem>
+                        <Text color="gray.500" fontSize="sm">
+                        <ListIcon as={MdCheckCircle} color='green.500' />
+                            中央公園噴水広場の南側の道路沿いにあるバス停
+                        </Text>
+                    </ListItem>
+                    <ListItem>
+                        <Text color="gray.500" fontSize="sm">
+                        <ListIcon as={MdCheckCircle} color='green.500' />
+                            中央公園南側を西から東側に通っている道路の道路沿いにある
+                        </Text>
+                    </ListItem>
+                    <ListItem>
+                        <Text color="gray.500" fontSize="sm">
+                        <ListIcon as={MdCheckCircle} color='green.500' />
+                            新三田、三宮方面行のバスが走っている
+                        </Text>
+                    </ListItem>
+                    </List>
                 </Stack>
             </Box>
             <Box bg="white" boxShadow="lg" rounded="xl" p="6" overflow="hidden" marginBottom='10'>
                 <Box h="200px" mt="-6" mx="-6" pos="relative">
                     <Image
                     src="/assets/koen-ha.jpg"
-                    fallbackSrc="https://via.placeholder.com/300x200"
+                    fallbacksrc="https://via.placeholder.com/300x200"
                     layout="fill"
                     />
                 </Box>
@@ -81,13 +121,23 @@ export default function Koen (){
                     >
                     </Text>
                     <Heading color="gray.700" fontSize="lg" fontFamily="body">
-                    中央公園前（ハ）
+                        中央公園前（ハ）
                     </Heading>
-                    <Text color="gray.500" fontSize="sm">
-                    Chakra UI is a simple, modular and accessible component library that
-                    gives you the building blocks you need to build your React
-                    applications.
-                    </Text>
+                    {/* <Text color="gray.500" fontSize="sm"> */}
+                    <List spacing={3}>
+                    <ListItem>
+                        <Text color="gray.500" fontSize="sm">
+                        <ListIcon as={MdCheckCircle} color='green.500' />
+                            中央公園西側を南から北側に通っている道路の道路沿いにあるバス停
+                        </Text>
+                    </ListItem>
+                    <ListItem>
+                        <Text color="gray.500" fontSize="sm">
+                        <ListIcon as={MdCheckCircle} color='green.500' />
+                            センチュリープラザ方面行のバスが走っている
+                        </Text>
+                    </ListItem>
+                    </List>
                 </Stack>
             </Box>
         </Flex>
