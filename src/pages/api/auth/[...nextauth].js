@@ -1,5 +1,4 @@
 import NextAuth from 'next-auth'
-import NetlifyProvider from "next-auth/providers/netlify";
 import CredentialsProvider from "next-auth/providers/credentials";
 
 // credentials の情報から、ログイン可能か判定してユーザー情報を返す関数
@@ -22,7 +21,7 @@ const findUserByCredentials = credentials => {
 const options = {
   // 認証プロバイダー
   providers: [
-    NetlifyProvider({
+    CredentialsProvider({
       // 表示名 ('Sign in with ...' に表示される)
       name: "Email",
       credentials: {
