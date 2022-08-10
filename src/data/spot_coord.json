@@ -1,0 +1,9 @@
+{
+    "spot":{
+        "century-praza":{"spot_name":"センチュリープラザ前イオン","longitude":135.1855130,"latitude":34.9085038},
+        "community-hall":{"spot_name":"コミュニティホール前","longitude":135.1846334,"latitude":34.8980847},
+        "akasia-4":{"spot_name":"あかしあ台４丁目","longitude":135.184944,"latitude":34.902667},
+        "erumu-praza":{"spot_name":"えるむプラザ前","longitude":135.1908527,"latitude":34.9031525},
+        "sanda-municipal-hospital":{"spot_name":"三田市民病院前","longitude":135.2008678,"latitude":34.9076441}
+    }
+}
