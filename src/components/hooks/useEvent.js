@@ -7,14 +7,26 @@ export const useEvent = () => {
   const [date, setDate] = useState(new Date());
 
   const send = async () => {
-    await fetch('https://httpbin.org/post', {
+    const d = new Intl.DateTimeFormat("ja-jp", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit"
+    }).format(date).replace(/\//g, '-');
+    
+
+    await fetch('https://es4.eedept.kobe-u.ac.jp/ezbus/api/add', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
     },
     // dateはUTCに変換される
-      body: JSON.stringify({event:event, date:date, place:place, description: description}),
-    }).then(response => console.log(response));
+      body: JSON.stringify({title:event, date:d, sid:place, description: description}),
+    }).then(response => {
+        console.log(response.status)
+      
+    });
   };
 
   return {

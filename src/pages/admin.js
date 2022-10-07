@@ -37,8 +37,11 @@ export default function Admin() {
             
             <FormLabel>開催場所</FormLabel>
             <Select placeholder='開催場所を選択してください' onChange={(e) => setPlace(e.target.value)} >
-                <option value='option1'>中央公園前</option>
-                <option value='option2'>えるむプラザ</option>
+                <option value='century-praza'>センチュリープラザ前イオン</option>
+                <option value='erumu-praza'>えるむプラザ</option>
+                <option value='akasia-4'>あかしあ台4丁目</option>
+                <option value='sanda-municipal-hospital'>さんだ市民病院</option>
+                <option value='community-hall'>コミュニティホール前</option>
             </Select>
             <FormLabel>イベントの詳細</FormLabel>
             <Textarea onChange={(e) => setDescription(e.target.value)} />
