@@ -13,7 +13,16 @@ import {
   Box,
   Text,
   Divider,
-  useDisclosure
+  useDisclosure,
+  Table,
+  Thead,
+  Tbody,
+  Tfoot,
+  Tr,
+  Th,
+  Td,
+  TableCaption,
+  TableContainer,
 } from '@chakra-ui/react'
 
 // import { ChakraProvider } from '@chakra-ui/react'
@@ -63,28 +72,66 @@ export default function Home(data) {
           <ModalBody>
             {data.events[spot].map((item) => {
               return (
-                <Box key={item.title} textAlign="center">
-                  <br />
-                  <Text fontWeight='bold'>
-                  <p>イベント内容：{item.description}</p>
-                  <p>{item.date}</p>
-                  </Text>
-                  <Button colorScheme='messenger' onClick={() => {
-                    getPosition().then((position) => {
-                      const flat = position.coords.latitude
-                      const flon = position.coords.longitude
-                      const tlat = spot_info.spot[spot].latitude
-                      const tlon = spot_info.spot[spot].longitude
-                      const url = makeUrl(flat + "," + flon, tlat + "," + tlon, item.date)
-                      if (window.open(url, "_blank")) { } else {
-                        window.location.href = url
+                <div key={item.title}>
+                  <TableContainer>
+                    <Table size='md' variant='unstyled'>
+                      <Thead>
+                      <Tr>
+                        <Th>イベント名　：{item.title}</Th>
+                      </Tr>
+                    </Thead>
+                    <Thead>
+                      <Tr>
+                        <Th>イベント詳細：{item.description}</Th>
+                      </Tr>
+                    </Thead>
+                    <Thead>
+                      <Tr>
+                        <Th>イベント日時：{item.date}</Th>
+                      </Tr>
+                    </Thead>
+                  </Table>
+                </TableContainer>
+                <br></br>
+                <Center>
+                <Button size='md' colorScheme='messenger' onClick={() => {
+                  getPosition().then((position) => {
+                    const flat = position.coords.latitude
+                    const flon = position.coords.longitude
+                    const tlat = spot_info.spot[spot].latitude
+                    const tlon = spot_info.spot[spot].longitude
+                    const url = makeUrl(flat + "," + flon, tlat + "," + tlon, item.date)
+                    if (window.open(url, "_blank")) { } else {
+                      window.location.href = url
                       }
-                    }
-                    )
+                    })
                   }}>ここに行く</Button>
-                  <br /><br />
-                  <Divider/>
-                </Box>
+                </Center>
+                <Divider/>
+                </div>
+                // <Box key={item.title} textAlign="center">
+                //   <br />
+                //   <Text fontWeight='bold'>
+                //   <p>イベント名：{item.title}</p>
+                //   <p>イベント詳細：{item.description}</p>
+                //   <p>{item.date}</p>
+                //   </Text>
+                //   <Button colorScheme='messenger' onClick={() => {
+                //     getPosition().then((position) => {
+                //       const flat = position.coords.latitude
+                //       const flon = position.coords.longitude
+                //       const tlat = spot_info.spot[spot].latitude
+                //       const tlon = spot_info.spot[spot].longitude
+                //       const url = makeUrl(flat + "," + flon, tlat + "," + tlon, item.date)
+                //       if (window.open(url, "_blank")) { } else {
+                //         window.location.href = url
+                //       }
+                //     }
+                //     )
+                //   }}>ここに行く</Button>
+                //   <br /><br />
+                //   <Divider/>
+                // </Box>
               )
             })}
           </ModalBody>
