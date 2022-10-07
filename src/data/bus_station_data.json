@@ -1,6 +1,6 @@
 {
     "bus_station_info":{
-        "yurinoki-i":{"name":"ゆりのき台中学校前（イ）", "emb_src":"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3272.041143793092!2d135.17555131567516!3d34.90541698038238!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x19990c54ffda5d8d!2zMzTCsDU0JzE5LjUiTiAxMzXCsDEwJzM5LjkiRQ!5e0!3m2!1sja!2sjp!4v1660107438156!5m2!1sja!2sjp"},
+        "yurinoki-i":{"name":"ゆりのき台中学校前（イ）", "emb_src":"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d668.2797169831481!2d135.17748191546826!3d34.90543064152603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd3949607f87237e3!2zMzTCsDU0JzE5LjciTiAxMzXCsDEwJzM5LjgiRQ!5e0!3m2!1sja!2sjp!4v1665122516658!5m2!1sja!2sjp"},
         "yurinoki-r":{"name":"ゆりのき台中学校前（ロ）", "emb_src":"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d794.7155809046932!2d135.17679980362814!3d34.906200012563374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x2009888366f6be24!2zMzTCsDU0JzIyLjUiTiAxMzXCsDEwJzM4LjMiRQ!5e0!3m2!1sja!2sjp!4v1660107662127!5m2!1sja!2sjp"},
         "yurinoki-h":{"name":"ゆりのき台中学校前（ハ）", "emb_src":"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d818.0093692819931!2d135.1775098292504!3d34.905508998773875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x1de2d0e2d035ac58!2zMzTCsDU0JzE5LjgiTiAxMzXCsDEwJzQxLjAiRQ!5e0!3m2!1sja!2sjp!4v1660107799218!5m2!1sja!2sjp"},
         "chuou-koen-i":{"name":"中央公園前（イ）", "emb_src":"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d818.0171692824346!2d135.19624182925037!3d34.904725998773934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x549511658de30ef3!2zMzTCsDU0JzE3LjAiTiAxMzXCsDExJzQ4LjQiRQ!5e0!3m2!1sja!2sjp!4v1660106978471!5m2!1sja!2sjp"},
@@ -8,3 +8,4 @@
         "chuou-koen-h":{"name":"中央公園前（ハ）", "emb_src":"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d530.4143793447929!2d135.1953736222693!3d34.90537068980682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd08e1cc0fcd1d112!2zMzTCsDU0JzE5LjMiTiAxMzXCsDExJzQ0LjQiRQ!5e0!3m2!1sja!2sjp!4v1660107195240!5m2!1sja!2sjp"}
     }
 }
+
