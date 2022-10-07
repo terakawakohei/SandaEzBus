@@ -22,8 +22,11 @@ export const useEvent = () => {
         'Content-Type': 'application/json'
     },
     // dateはUTCに変換される
-      body: JSON.stringify({event:event, date:d, sid:place, description: description}),
-    }).then(response => console.log(response));
+      body: JSON.stringify({title:event, date:d, sid:place, description: description}),
+    }).then(response => {
+        console.log(response.status)
+      
+    });
   };
 
   return {
