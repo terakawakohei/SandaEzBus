@@ -25,7 +25,6 @@ export const useEvent = () => {
       body: JSON.stringify({title:event, date:d, sid:place, description: description}),
     }).then(response => {
         console.log(response.status)
-      
     });
   };
 
