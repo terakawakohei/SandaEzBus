@@ -5,7 +5,13 @@ import {
     Textarea,
     Input,
     Select,
+    Alert,
+    AlertIcon,
+    AlertTitle,
+    AlertDescription,
+    CloseButton
 } from '@chakra-ui/react'
+
 import DatePicker, { registerLocale } from "react-datepicker";
 import ja from "date-fns/locale/ja";
 import "react-datepicker/dist/react-datepicker.css"
@@ -14,14 +20,14 @@ import { useEvent } from '../components/hooks/useEvent';
 
 
 export default function Admin() {
-    const { setEvent, setDescription, setPlace, date, setDate,  send } = useEvent();
+    const { event, setEvent, description, setDescription, place, setPlace, date, setDate, onClose, onOpen, isVisible, send } = useEvent();
     const Today = new Date();
     registerLocale('ja', ja);
 
     return (
         <Box margin={5}>
             <FormLabel>イベント名</FormLabel>
-            <Input type="text" onChange={(e) => setEvent(e.target.value)} />
+            <Input type="text" onChange={(e) => setEvent(e.target.value)} value={event}/>
             <FormLabel>開催日時</FormLabel>
             <field>
                 <DatePicker 
@@ -36,7 +42,7 @@ export default function Admin() {
             </field>
             
             <FormLabel>開催場所</FormLabel>
-            <Select placeholder='開催場所を選択してください' onChange={(e) => setPlace(e.target.value)} >
+            <Select placeholder='開催場所を選択してください' onChange={(e) => setPlace(e.target.value)} value={place}>
                 <option value='century-praza'>センチュリープラザ前イオン</option>
                 <option value='erumu-praza'>えるむプラザ</option>
                 <option value='akasia-4'>あかしあ台4丁目</option>
@@ -44,8 +50,44 @@ export default function Admin() {
                 <option value='community-hall'>コミュニティホール前</option>
             </Select>
             <FormLabel>イベントの詳細</FormLabel>
-            <Textarea onChange={(e) => setDescription(e.target.value)} />
-            <Button type="button" onClick={send}>作成する</Button>
+            <Textarea onChange={(e) => setDescription(e.target.value)} value={description}/>
+            <Button type="button" 
+            onClick={()=>{
+                send().then(response => {
+                    if (response.ok) {
+                        onOpen()
+                        setEvent('')
+                        setDescription('')
+                        setPlace('')
+                    }
+                })
+                
+            }}
+            >作成する</Button>
+            <CompExample isVisible={isVisible} onClose={onClose}/>
         </Box>
     );
 }
+
+function CompExample({isVisible, onClose}) {
+    return isVisible ? (
+      <Alert status='success'>
+        <AlertIcon />
+        <Box margin={5}>
+          <AlertTitle>作成完了</AlertTitle>
+          <AlertDescription>
+            イベントを作成しました
+          </AlertDescription>
+        </Box>
+        <CloseButton
+          alignSelf='flex-start'
+          position='relative'
+          right={-1}
+          top={-1}
+          onClick={onClose}
+        />
+      </Alert>
+    ) : (
+      <></>
+    )
+  }
