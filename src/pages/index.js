@@ -16,12 +16,9 @@ import {
   useDisclosure,
   Table,
   Thead,
-  Tbody,
-  Tfoot,
   Tr,
   Th,
-  Td,
-  TableCaption,
+  Select,
   TableContainer,
 } from '@chakra-ui/react'
 
@@ -64,9 +61,16 @@ export default function Home(data) {
       </Center>
 
       <Modal onClose={onClose} size={"sm"} isOpen={isOpen} margin={5}>
+        
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>{spot_info.spot[spot].spot_name}</ModalHeader>
+          <ModalHeader>{spot_info.spot[spot].spot_name}
+            {/* <Select placeholder='Select option'>
+              <option value='option1'>Option 1</option>
+              <option value='option2'>Option 2</option>
+              <option value='option3'>Option 3</option>
+          </Select> */}
+          </ModalHeader>
           <Divider/>
           <ModalCloseButton />
           <ModalBody>
@@ -107,6 +111,7 @@ export default function Home(data) {
                     })
                   }}>ここに行く</Button>
                 </Center>
+                <br></br>
                 <Divider/>
                 </div>
                 // <Box key={item.title} textAlign="center">
