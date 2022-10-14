@@ -28,7 +28,6 @@ import {
     PopoverFooter,
     PopoverArrow,
     PopoverCloseButton,
-    PopoverAnchor,
 } from '@chakra-ui/react'
 import Router, { useRouter } from 'next/router' 
 import spot_info from '../data/spot_coord.json' //spot_name, longtitude, latitude
@@ -39,6 +38,7 @@ export default function AdminDeleteEvents(props) {
     const { isOpen, onOpen, onClose } = useDisclosure(false, false, false);
     const router = useRouter();
     const initialFocusRef = React.useRef();
+    const firstFieldRef = React.useRef(null)
 
     async function deleteEvent(eid){
 
@@ -49,6 +49,49 @@ export default function AdminDeleteEvents(props) {
         })
         router.reload()//画面更新。ここ何とかならない？
     };
+
+    const Popup = ({firstFieldRef, onCancel, item}) => {
+        return (
+            <Popover
+                initialFocusRef={firstFieldRef}
+                placement='bottom'
+                closeOnBlur={true}
+                >
+                <PopoverTrigger>
+                <Button>この予定を削除する</Button>
+                </PopoverTrigger>
+                <PopoverContent color='white' bg='red.500' borderColor='blue.800'>
+                <PopoverHeader pt={4} fontWeight='bold' border='0' >
+                    <Center>イベント名：{item.title}</Center>
+                </PopoverHeader>
+                <PopoverArrow />
+                <PopoverCloseButton />
+                <PopoverBody>
+                    このイベントを本当に削除しますか？
+                </PopoverBody>
+                <Center>
+                    <PopoverFooter
+                    border='0'
+                    display='flex'
+                    alignItems='center'
+                    justifyContent='space-between'
+                    pb={4}
+                    >
+                        <ButtonGroup size='sm'>
+                        <Button colorScheme='green' onClick={onClose}>キャンセル</Button>
+                        <Button colorScheme='blue' ref={initialFocusRef} onClick={() => {
+                            deleteEvent(item.eid)
+                            }}>
+                            削除する
+                        </Button>
+                        </ButtonGroup>  
+                    </PopoverFooter>
+                </Center>
+                
+                </PopoverContent>
+            </Popover>
+        )
+    }
 
     return (
         <Box>
@@ -95,53 +138,15 @@ export default function AdminDeleteEvents(props) {
                                         <Th>イベント日時：{item.date}</Th>
                                         </Tr>
                                     </Thead>
-                                    <Thead>
+                                    {/* <Thead>
                                         <Tr>
                                         <Th>for test：{item.eid}</Th>
                                         </Tr>
-                                    </Thead>
+                                    </Thead> */}
                                     </Table>
                                 </TableContainer>
                                 <Center>
-                                <Popover
-                                    initialFocusRef={initialFocusRef}
-                                    placement='bottom'
-                                    closeOnBlur={true}
-                                    >
-                                    <PopoverTrigger>
-                                    <Button>この予定を削除する</Button>
-                                    </PopoverTrigger>
-                                    <PopoverContent color='white' bg='red.500' borderColor='blue.800'>
-                                    <PopoverHeader pt={4} fontWeight='bold' border='0' >
-                                        <Center>イベント名：{item.title}</Center>
-                                    </PopoverHeader>
-                                    <PopoverArrow />
-                                    <PopoverCloseButton />
-                                    <PopoverBody>
-                                        このイベントを本当に削除しますか？
-                                    </PopoverBody>
-                                    <Center>
-                                        <PopoverFooter
-                                        border='0'
-                                        display='flex'
-                                        alignItems='center'
-                                        justifyContent='space-between'
-                                        pb={4}
-                                        >
-                                            <ButtonGroup size='sm'>
-                                            <Button colorScheme='green' onClick={onClose}>キャンセル</Button>
-                                            <Button colorScheme='blue' ref={initialFocusRef} onClick={() => {
-                                                deleteEvent(item.eid)
-                                                }}>
-                                                削除する
-                                            </Button>
-                                            </ButtonGroup>  
-                                        </PopoverFooter>
-                                    </Center>
-                                    
-                                    </PopoverContent>
-                                </Popover>
-
+                                    <Popup firstFieldRef={firstFieldRef} onCancel={onClose} item={item}></Popup>
                                 </Center>
                                 <br></br>
                                 <Divider/>
