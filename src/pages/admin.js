@@ -98,7 +98,16 @@ export default function Admin(data) {
                   console.log(isEvent)
                   
                 })
-              } 
+              } else{
+                toast({
+                        title: 'Error',
+                        description: "入力されていない項目があります",
+                        status: 'error',
+                        duration: 3000,
+                        isClosable: true,
+                        position: 'top'
+                      })
+              }
             }}
             >作成する</Button>
             <AdminDeleteEvents edata={data}/>
