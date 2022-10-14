@@ -21,7 +21,7 @@ import AdminDeleteEvents from "../components/adminDeleteEvents"
 
 
 
-export default function Admin() {
+export default function Admin(data) {
     const { event, setEvent, description, setDescription, place, setPlace, date, setDate, onClose, onOpen, isVisible, send } = useEvent();
     const Today = new Date();
     registerLocale('ja', ja);
