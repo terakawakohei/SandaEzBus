@@ -1,4 +1,5 @@
-import { Link, Button, Flex } from '@chakra-ui/react'
+import { Button } from '@chakra-ui/react'
+
 import {
     Box,
     FormControl,
@@ -14,11 +15,12 @@ import {
 import DatePicker, { registerLocale } from "react-datepicker";
 import ja from "date-fns/locale/ja";
 import "react-datepicker/dist/react-datepicker.css"
-
 import { useEvent } from '../components/hooks/useEvent';
+import AdminDeleteEvents from "../components/adminDeleteEvents"
 
 
-export default function Admin() {
+
+export default function Admin(data) {
     const { event, setEvent, description, setDescription, place, setPlace, date, setDate, onClose, onOpen, isVisible, send } = useEvent();
     const Today = new Date();
     const isEvent = event === ''
@@ -99,6 +101,15 @@ export default function Admin() {
               } 
             }}
             >作成する</Button>
+            <AdminDeleteEvents edata={data}/>
         </Box>
     );
 }
+
+export async function getServerSideProps() {
+    const res = await fetch('https://es4.eedept.kobe-u.ac.jp/ezbus/api/get/') // api call
+    const events = await res.json()
+    // console.log(events)
+    return { props: { events } }
+}
+
