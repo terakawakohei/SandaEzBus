@@ -31,6 +31,7 @@ export const useEvent = () => {
     },
     // dateはUTCに変換される
       body: JSON.stringify({title:event, date:d, sid:place, description: description}),
+
     })
 
     return status
