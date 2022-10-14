@@ -7,7 +7,7 @@ export const useEvent = () => {
   const [event, setEvent] = useState('');
   const [description, setDescription] = useState('');
   const [place, setPlace] = useState('');
-  const [date, setDate] = useState(new Date());
+  const [date, setDate] = useState('');
   const {
     isOpen: isVisible,
     onClose,
