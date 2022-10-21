@@ -39,15 +39,24 @@ export default function AdminDeleteEvents(props) {
     const router = useRouter();
     const initialFocusRef = React.useRef();
     const firstFieldRef = React.useRef(null)
+    const [edata, setEdata] = useState()
+
+    useEffect(()=>{
+        fetch('https://es4.eedept.kobe-u.ac.jp/ezbus/api/get/')
+        .then((res) => res.json())
+        .then((data) => {
+            setEdata({'events':data})
+        })
+    }, [])
 
     async function deleteEvent(eid){
-
         await fetch('https://es4.eedept.kobe-u.ac.jp/ezbus/api/delete/'+eid, {
             method: 'DELETE',
         }).then(response => {
-            console.log(response.status)
+            return response.json()
+        }).then(response => {
+            setEdata({'events':response});
         })
-        router.reload()//画面更新。ここ何とかならない？
     };
 
     const Popup = ({firstFieldRef, onCancel, item}) => {
@@ -96,6 +105,7 @@ export default function AdminDeleteEvents(props) {
             </Popover>
         )
     }
+    if (!edata) return <></>
 
     return (
         <Box>
@@ -122,7 +132,8 @@ export default function AdminDeleteEvents(props) {
                 <ModalCloseButton />
                 <Divider/>
                 <ModalBody>
-                    {props.edata.events[deletePlace].map((item) => {
+                    {edata.events[deletePlace].map((item) => {
+                        console.log(edata)
                         return (
                             <div key={item.title}>
                                 <TableContainer>
@@ -173,4 +184,3 @@ export default function AdminDeleteEvents(props) {
         </Box>
     );
 }
-

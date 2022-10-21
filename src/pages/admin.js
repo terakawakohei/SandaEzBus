@@ -20,7 +20,7 @@ import AdminDeleteEvents from "../components/adminDeleteEvents"
 
 
 
-export default function Admin(data) {
+export default function Admin() {
     const { event, setEvent, description, setDescription, place, setPlace, date, setDate, onClose, onOpen, isVisible, send } = useEvent();
     const Today = new Date();
     const isEvent = event === ''
@@ -110,15 +110,7 @@ export default function Admin(data) {
               }
             }}
             >作成する</Button>
-            <AdminDeleteEvents edata={data}/>
+            <AdminDeleteEvents/>
         </Box>
     );
 }
-
-export async function getServerSideProps() {
-    const res = await fetch('https://es4.eedept.kobe-u.ac.jp/ezbus/api/get/') // api call
-    const events = await res.json()
-    // console.log(events)
-    return { props: { events } }
-}
-
