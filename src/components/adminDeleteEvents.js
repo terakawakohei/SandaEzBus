@@ -74,7 +74,6 @@ export default function AdminDeleteEvents(props) {
                     position: 'top'
                   })
             }
-        })
             return response.json()
         }).then(response => {
             setEdata({'events':response});
