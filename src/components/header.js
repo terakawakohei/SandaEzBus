@@ -13,11 +13,11 @@ export default function Header() {
             color="black"
         >
             <Box>
+                <Link href="/">
                 <Button bg="transparent" border="1px">
-                    <Link href="/">
                         <a>Home</a>
-                    </Link>
                 </Button>
+                </Link>
             </Box>
      
             <Box>
