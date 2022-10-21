@@ -41,13 +41,20 @@ export default function AdminDeleteEvents(props) {
     const initialFocusRef = React.useRef();
     const firstFieldRef = React.useRef(null)
     const toast = useToast();
+    const [edata, setEdata] = useState()
+
+    useEffect(()=>{
+        fetch('https://es4.eedept.kobe-u.ac.jp/ezbus/api/get/')
+        .then((res) => res.json())
+        .then((data) => {
+            setEdata({'events':data})
+        })
+    }, [])
 
     async function deleteEvent(eid){
-
         await fetch('https://es4.eedept.kobe-u.ac.jp/ezbus/api/delete/'+eid, {
             method: 'DELETE',
         }).then(response => {
-            console.log(response.status)
             if (response.ok){
                 toast({
                     title: 'Success',
@@ -68,12 +75,19 @@ export default function AdminDeleteEvents(props) {
                   })
             }
         })
-        // router.reload()//画面更新。ここ何とかならない？
+            return response.json()
+        }).then(response => {
+            setEdata({'events':response});
+        })
     };
 
     const Popup = ({firstFieldRef, onCancel, item}) => {
+        const [isOpen, setIsOpen] = useBoolean()
         return (
             <Popover
+                isOpen={isOpen}
+                onOpen={setIsOpen.on}
+                onClose={setIsOpen.off}
                 initialFocusRef={firstFieldRef}
                 placement='bottom'
                 closeOnBlur={true}
@@ -99,7 +113,7 @@ export default function AdminDeleteEvents(props) {
                     pb={4}
                     >
                         <ButtonGroup size='sm'>
-                        <Button colorScheme='green' onClick={onClose}>キャンセル</Button>
+                        <Button colorScheme='green' onClick={setIsOpen.off}>キャンセル</Button>
                         <Button colorScheme='blue' ref={initialFocusRef} onClick={() => {
                             deleteEvent(item.eid)
                             }}>
@@ -113,6 +127,7 @@ export default function AdminDeleteEvents(props) {
             </Popover>
         )
     }
+    if (!edata) return <></>
 
     return (
         <Box>
@@ -139,7 +154,8 @@ export default function AdminDeleteEvents(props) {
                 <ModalCloseButton />
                 <Divider/>
                 <ModalBody>
-                    {props.edata.events[deletePlace].map((item) => {
+                    {edata.events[deletePlace].map((item) => {
+                        console.log(edata)
                         return (
                             <div key={item.title}>
                                 <TableContainer>
@@ -190,4 +206,3 @@ export default function AdminDeleteEvents(props) {
         </Box>
     );
 }
-
