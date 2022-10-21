@@ -28,6 +28,7 @@ import {
     PopoverFooter,
     PopoverArrow,
     PopoverCloseButton,
+    useToast
 } from '@chakra-ui/react'
 import Router, { useRouter } from 'next/router' 
 import spot_info from '../data/spot_coord.json' //spot_name, longtitude, latitude
@@ -39,6 +40,7 @@ export default function AdminDeleteEvents(props) {
     const router = useRouter();
     const initialFocusRef = React.useRef();
     const firstFieldRef = React.useRef(null)
+    const toast = useToast();
 
     async function deleteEvent(eid){
 
@@ -46,8 +48,27 @@ export default function AdminDeleteEvents(props) {
             method: 'DELETE',
         }).then(response => {
             console.log(response.status)
+            if (response.ok){
+                toast({
+                    title: 'Success',
+                    description: "イベントを削除しました",
+                    status: 'success',
+                    duration: 3000,
+                    isClosable: true,
+                    position: 'top'
+                  })
+            }else{
+                toast({
+                    title: 'Error',
+                    description: "入力されていない項目があります",
+                    status: 'error',
+                    duration: 3000,
+                    isClosable: true,
+                    position: 'top'
+                  })
+            }
         })
-        router.reload()//画面更新。ここ何とかならない？
+        // router.reload()//画面更新。ここ何とかならない？
     };
 
     const Popup = ({firstFieldRef, onCancel, item}) => {
