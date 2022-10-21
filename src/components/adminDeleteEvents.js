@@ -51,8 +51,12 @@ export default function AdminDeleteEvents(props) {
     };
 
     const Popup = ({firstFieldRef, onCancel, item}) => {
+        const [isOpen, setIsOpen] = useBoolean()
         return (
             <Popover
+                isOpen={isOpen}
+                onOpen={setIsOpen.on}
+                onClose={setIsOpen.off}
                 initialFocusRef={firstFieldRef}
                 placement='bottom'
                 closeOnBlur={true}
@@ -78,7 +82,7 @@ export default function AdminDeleteEvents(props) {
                     pb={4}
                     >
                         <ButtonGroup size='sm'>
-                        <Button colorScheme='green' onClick={onClose}>キャンセル</Button>
+                        <Button colorScheme='green' onClick={setIsOpen.off}>キャンセル</Button>
                         <Button colorScheme='blue' ref={initialFocusRef} onClick={() => {
                             deleteEvent(item.eid)
                             }}>
