@@ -1,4 +1,5 @@
-import { Button } from '@chakra-ui/react'
+
+import { useSession, signIn, signOut } from "next-auth/react"
 
 import {
     Box,
@@ -9,7 +10,9 @@ import {
     Select,
     FormErrorMessage,
     Divider,
-    useToast
+    useToast,
+    Button,
+    Flex,
 } from '@chakra-ui/react'
 
 import DatePicker, { registerLocale } from "react-datepicker";
@@ -21,15 +24,18 @@ import AdminDeleteEvents from "../components/adminDeleteEvents"
 
 
 export default function Admin() {
+    const { data: session } = useSession()
     const { event, setEvent, description, setDescription, place, setPlace, date, setDate, onClose, onOpen, isVisible, send } = useEvent();
+
     const Today = new Date();
     const isEvent = event === ''
     const isPlace = place === ''
     const isDate = date === ''
     const toast = useToast()
     registerLocale('ja', ja);
-
-    return (
+    
+    if (session) {
+        return (
         <Box margin={2} borderWidth='1px' borderRadius='lg' padding={4}>
           <FormControl  isRequired isInvalid={isEvent} marginBottom={5}>
             <FormLabel>イベント名</FormLabel>
@@ -113,4 +119,12 @@ export default function Admin() {
             <AdminDeleteEvents/>
         </Box>
     );
+    }
+
+  return (
+    <Flex h='80vh' justify='center' align='center' direction='column'>
+        <Box>Not signed in</Box>
+        <Box><Button onClick={() => signIn()}>Sign in</Button></Box>
+    </Flex>
+    )
 }
