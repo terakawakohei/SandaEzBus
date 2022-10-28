@@ -1,2 +1,2 @@
-[[plugins]]
-package = "@netlify/plugin-nextjs"
+[context.production]
+command = "npm run build && echo \"NEXTAUTH_URL=https://deploy-preview-53--spiffy-dolphin-ef62d9.netlify.app\" > .env.local"
