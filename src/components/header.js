@@ -15,20 +15,20 @@ export default function Header() {
             <Box>
                 <Button bg="transparent" border="1px">
                     <Link href="/">
-                        <a>Home</a>
+                        <a>Home hghg</a>
                     </Link>
                 </Button>
             </Box>
-     
+
             <Box>
                 <Text
                     bgGradient='linear(to-l, #7928CA, #FF0080)'
                     bgClip='text'
                     fontSize='20px'
                     fontWeight='extrabold'
-                    >
+                >
                     Sanda Ez Bus
-                    </Text>
+                </Text>
             </Box>
         </Flex>
 
