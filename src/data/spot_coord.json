@@ -1,10 +1,14 @@
 {
     "spot":{
-        "century-praza":{"spot_name":"センチュリープラザ前イオン","longitude":135.1855130,"latitude":34.9085038},
-        "community-hall":{"spot_name":"コミュニティホール前","longitude":135.1846334,"latitude":34.8980847},
-        "akasia-4":{"spot_name":"あかしあ台４丁目","longitude":135.184944,"latitude":34.902667},
-        "erumu-praza":{"spot_name":"えるむプラザ前","longitude":135.1908527,"latitude":34.9031525},
-        "sanda-municipal-hospital":{"spot_name":"三田市民病院前","longitude":135.2008678,"latitude":34.9076441},
-        "for-escape-error":{"spot_name":"for-escape-error","longitude":0,"latitude":0}
+        "century-praza":{"spot_name":"センチュリープラザ前イオン","bus_stop_name":"blank","longitude":135.1855130,"latitude":34.9085038},
+        "community-hall":{"spot_name":"コミュニティホール前","bus_stop_name":"blank","longitude":135.1846334,"latitude":34.8980847},
+        "akasia-4":{"spot_name":"あかしあ台４丁目","bus_stop_name":"blank","longitude":135.184944,"latitude":34.902667},
+        "erumu-praza":{"spot_name":"えるむプラザ前","bus_stop_name":"blank","longitude":135.1908527,"latitude":34.9031525},
+        "woody-central":{"spot_name":"ウッディタウン中央","bus_stop_name":"センチュリープラザ前","longitude":135.18553397509075,"latitude":34.90860298161749},
+        "woody-south":{"spot_name":"南ウッディタウン","bus_stop_name":"えるむプラザ前","longitude":135.19084063214152,"latitude":34.90315076795569},
+        "akasia-chiku-center":{"spot_name":"あかしあ台地区センター","bus_stop_name":"コミュニティホール前","longitude":135.18465071649052,"latitude":34.89817269714573},
+        "woody-simin-center":{"spot_name":"ウッディタウン市民センター","bus_stop_name":"けやき台1丁目","longitude":135.18922354887678,"latitude":34.90738598922419},
+        "sanda-municipal-hospital":{"spot_name":"三田市民病院前","bus_stop_name":"市民病院前","longitude":135.20059895321353,"latitude":34.906878742392465},
+        " ":{"spot_name":"","bus_stop_name":"","longitude":0,"latitude":0}
     }
 }
