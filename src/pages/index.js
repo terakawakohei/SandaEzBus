@@ -13,14 +13,20 @@ import {
   Box,
   Text,
   Divider,
-  useDisclosure
+  useDisclosure,
+  Table,
+  Thead,
+  Tr,
+  Th,
+  Select,
+  TableContainer,
 } from '@chakra-ui/react'
 
 // import { ChakraProvider } from '@chakra-ui/react'
 import { useState } from "react"
 import makeUrl from '../components/util/makeurl'
 import makeUrlCrrTime from '../components/util/makeurl_now'
-import spot_info from '../data/spot_coord.json'
+import spot_info from '../data/spot_coord.json' //spot_name, longtitude, latitude
 
 export default function Home(data) {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -41,7 +47,6 @@ export default function Home(data) {
   const sizes = ['xs', 'sm', 'md', 'lg', 'xl', 'full']
   return (
     <div>
-
       <SVGMap onClickSpot={openModal} />
       <Center>
           <Link href="/busstop">
@@ -54,37 +59,60 @@ export default function Home(data) {
           </Link>
       </Center>
 
-      <Modal onClose={onClose} size={"sm"} isOpen={isOpen} margin={5}>
+      <Modal onClose={onClose} size={'sm'} isOpen={isOpen} margin={5} motionPreset='slideInBottom'>
+        
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>{spot_info.spot[spot].spot_name}</ModalHeader>
+          <ModalHeader>{spot_info.spot[spot].spot_name}
+            {/* <Select placeholder='Select option'>
+              <option value='option1'>Option 1</option>
+              <option value='option2'>Option 2</option>
+              <option value='option3'>Option 3</option>
+          </Select> */}
+          </ModalHeader>
           <Divider/>
           <ModalCloseButton />
           <ModalBody>
             {data.events[spot].map((item) => {
               return (
-                <Box key={item.title} textAlign="center">
-                  <br />
-                  <Text fontWeight='bold'>
-                  <p>イベント内容：{item.description}</p>
-                  <p>{item.date}</p>
-                  </Text>
-                  <Button colorScheme='messenger' onClick={() => {
-                    getPosition().then((position) => {
-                      const flat = position.coords.latitude
-                      const flon = position.coords.longitude
-                      const tlat = spot_info.spot[spot].latitude
-                      const tlon = spot_info.spot[spot].longitude
-                      const url = makeUrl(flat + "," + flon, tlat + "," + tlon, item.date)
-                      if (window.open(url, "_blank")) { } else {
-                        window.location.href = url
+                <div key={item.title}>
+                  <TableContainer>
+                    <Table size='md' variant='unstyled'>
+                      <Thead>
+                      <Tr>
+                        <Th>イベント名　：{item.title}</Th>
+                      </Tr>
+                    </Thead>
+                    <Thead>
+                      <Tr>
+                        <Th>イベント詳細：{item.description}</Th>
+                      </Tr>
+                    </Thead>
+                    <Thead>
+                      <Tr>
+                        <Th>イベント日時：{item.date}</Th>
+                      </Tr>
+                    </Thead>
+                  </Table>
+                </TableContainer>
+                <br></br>
+                <Center>
+                <Button size='md' colorScheme='messenger' onClick={() => {
+                  getPosition().then((position) => {
+                    const flat = position.coords.latitude
+                    const flon = position.coords.longitude
+                    const tlat = spot_info.spot[spot].latitude
+                    const tlon = spot_info.spot[spot].longitude
+                    const url = makeUrl(flat + "," + flon, tlat + "," + tlon, item.date)
+                    if (window.open(url, "_blank")) { } else {
+                      window.location.href = url
                       }
-                    }
-                    )
+                    })
                   }}>ここに行く</Button>
-                  <br /><br />
-                  <Divider/>
-                </Box>
+                </Center>
+                <br></br>
+                <Divider/>
+                </div>
               )
             })}
           </ModalBody>
@@ -113,37 +141,10 @@ export default function Home(data) {
 }
 
 export async function getServerSideProps() {
-  // いったん消しとく
-  // const res = await fetch('http://localhost:5000/event') // api call
-  // const events = await res.json()
-
-  const events = {
-    "century-praza": [
-      { "eid": "1", "title": "ev1", "date": "2022-08-12 11:45", "spot": "century-praza", "description": "test_ev1" },
-      { "eid": "2", "title": "ev2", "date": "2022-08-12 12:12", "spot": "century-praza", "description": "test_ev2" },
-      { "eid": "3", "title": "ev3", "date": "2022-08-12 13:14", "spot": "century-praza", "description": "test_ev3" }
-    ],
-    "community-hall": [
-      { "eid": "4", "title": "ev4", "date": "2022-08-12 11:45", "spot": "community-hall", "description": "test_ev4" },
-      { "eid": "5", "title": "ev5", "date": "2022-08-12 13:45", "spot": "community-hall", "description": "test_ev5" },
-      { "eid": "6", "title": "ev6", "date": "2022-08-12 13:59", "spot": "community-hall", "description": "test_ev6" }
-    ],
-    "akasia-4": [
-      { "eid": "7", "title": "ev7", "date": "2022-08-12 11:45", "spot": "akasia-4", "description": "test_ev7" },
-      { "eid": "8", "title": "ev8", "date": "2022-08-13 13:50", "spot": "akasia-4", "description": "test_ev8" },
-      { "eid": "9", "title": "ev9", "date": "2022-08-16 12:45", "spot": "akasia-4", "description": "test_ev9" }
-    ],
-    "erumu-praza": [
-      { "eid": "10", "title": "ev10", "date": "2022-08-12 11:45", "spot": "erumu-praza", "description": "test_ev10" },
-      { "eid": "11", "title": "ev11", "date": "2022-08-12 12:35", "spot": "erumu-praza", "description": "test_ev11" },
-      { "eid": "12", "title": "ev12", "date": "2022-08-12 12:56", "spot": "erumu-praza", "description": "test_ev12" }
-    ],
-    "sanda-municipal-hospital": []
-  }
-
-
-  // console.log("fdsafdsafdsa")
-  // console.log(events)
+  //apiからイベント情報のフェッチ
+  const res = await fetch('https://es4.eedept.kobe-u.ac.jp/ezbus/api/get/') // api call
+  const events = await res.json()
+  console.log(events)
   return { props: { events } }
 }
 
