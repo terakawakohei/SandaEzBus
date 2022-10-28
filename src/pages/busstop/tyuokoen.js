@@ -175,7 +175,7 @@ export default function Koen (){
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>{bus_info.bus_station_info[bus_station].name}</ModalHeader>
-          <ModalCloseButton />
+          {/* <ModalCloseButton /> */}
           <ModalBody>
           <AspectRatio>
                 <iframe 
