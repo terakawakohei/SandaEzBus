@@ -1,4 +1,4 @@
-import SVGMap from '../components/svg/Map'
+import SvgMap20221028 from '../components/svg/Map20221028'
 import Link from 'next/link';
 import {
   Modal,
@@ -51,23 +51,23 @@ export default function Home(data) {
   return (
     <div>
 
-      <SVGMap onClickSpot={openModal} />
+      <SvgMap20221028 onClickSpot={openModal} />
       <Center>
-          <Link href="/busstop">
-        <Button w='80vw' h='20vh' margin="5px" boxShadow="lg" color="#7928CA" borderRadius="20px">
+        <Link href="/busstop">
+          <Button w='80vw' h='20vh' margin="5px" boxShadow="lg" color="#7928CA" borderRadius="20px">
             <Text bg='#7928CA'
-                  bgClip='text'
-                  fontSize='20px'
-                  fontWeight='extrabold'>乗り換え場所を確認する</Text>
-        </Button>
-          </Link>
+              bgClip='text'
+              fontSize='20px'
+              fontWeight='extrabold'>乗り換え場所を確認する</Text>
+          </Button>
+        </Link>
       </Center>
 
       <Modal onClose={onClose} size={"sm"} isOpen={isOpen} margin={5}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>{spot_info.spot[spot].spot_name}</ModalHeader>
-          <Divider/>
+          <Divider />
           <ModalCloseButton />
           <ModalBody>
             {data.events[spot].map((item) => {
@@ -76,38 +76,38 @@ export default function Home(data) {
                   <TableContainer>
                     <Table size='md' variant='unstyled'>
                       <Thead>
-                      <Tr>
-                        <Th>イベント名　：{item.title}</Th>
-                      </Tr>
-                    </Thead>
-                    <Thead>
-                      <Tr>
-                        <Th>イベント詳細：{item.description}</Th>
-                      </Tr>
-                    </Thead>
-                    <Thead>
-                      <Tr>
-                        <Th>イベント日時：{item.date}</Th>
-                      </Tr>
-                    </Thead>
-                  </Table>
-                </TableContainer>
-                <br></br>
-                <Center>
-                <Button size='md' colorScheme='messenger' onClick={() => {
-                  getPosition().then((position) => {
-                    const flat = position.coords.latitude
-                    const flon = position.coords.longitude
-                    const tlat = spot_info.spot[spot].latitude
-                    const tlon = spot_info.spot[spot].longitude
-                    const url = makeUrl(flat + "," + flon, tlat + "," + tlon, item.date)
-                    if (window.open(url, "_blank")) { } else {
-                      window.location.href = url
-                      }
-                    })
-                  }}>ここに行く</Button>
-                </Center>
-                <Divider/>
+                        <Tr>
+                          <Th>イベント名　：{item.title}</Th>
+                        </Tr>
+                      </Thead>
+                      <Thead>
+                        <Tr>
+                          <Th>イベント詳細：{item.description}</Th>
+                        </Tr>
+                      </Thead>
+                      <Thead>
+                        <Tr>
+                          <Th>イベント日時：{item.date}</Th>
+                        </Tr>
+                      </Thead>
+                    </Table>
+                  </TableContainer>
+                  <br></br>
+                  <Center>
+                    <Button size='md' colorScheme='messenger' onClick={() => {
+                      getPosition().then((position) => {
+                        const flat = position.coords.latitude
+                        const flon = position.coords.longitude
+                        const tlat = spot_info.spot[spot].latitude
+                        const tlon = spot_info.spot[spot].longitude
+                        const url = makeUrl(flat + "," + flon, tlat + "," + tlon, item.date)
+                        if (window.open(url, "_blank")) { } else {
+                          window.location.href = url
+                        }
+                      })
+                    }}>ここに行く</Button>
+                  </Center>
+                  <Divider />
                 </div>
                 // <Box key={item.title} textAlign="center">
                 //   <br />
@@ -135,24 +135,24 @@ export default function Home(data) {
               )
             })}
           </ModalBody>
-            <Center>
-          <ModalFooter>
-            <Button colorScheme='messenger' onClick={() => {
-              getPosition().then((position) => {
-                const flat = position.coords.latitude
-                const flon = position.coords.longitude
-                const tlat = spot_info.spot[spot].latitude
-                const tlon = spot_info.spot[spot].longitude
-                const url = makeUrlCrrTime(flat + "," + flon, tlat + "," + tlon)
-                if (window.open(url, "_blank")) { } else {
-                  window.location.href = url
+          <Center>
+            <ModalFooter>
+              <Button colorScheme='messenger' onClick={() => {
+                getPosition().then((position) => {
+                  const flat = position.coords.latitude
+                  const flon = position.coords.longitude
+                  const tlat = spot_info.spot[spot].latitude
+                  const tlon = spot_info.spot[spot].longitude
+                  const url = makeUrlCrrTime(flat + "," + flon, tlat + "," + tlon)
+                  if (window.open(url, "_blank")) { } else {
+                    window.location.href = url
+                  }
                 }
-              }
-              )
-            }}>今から行く</Button>
-            {/* <Button onClick={onClose}> Close </Button> */}
-          </ModalFooter>
-            </Center>
+                )
+              }}>今から行く</Button>
+              {/* <Button onClick={onClose}> Close </Button> */}
+            </ModalFooter>
+          </Center>
         </ModalContent>
       </Modal>
     </div>
