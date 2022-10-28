@@ -63,7 +63,13 @@ export default function Home(data) {
         
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>{spot_info.spot[spot].spot_name}
+          <ModalHeader marginTop='20px' marginBottom='15px'>
+            <Text fontSize='25px' textAlign={[ 'center' ]}>
+              {spot_info.spot[spot].spot_name}
+            </Text>
+            <Text fontSize='20px' textAlign={[ 'center' ]}>
+              行先バス停: {spot_info.spot[spot].bus_stop_name}
+            </Text>
             {/* <Select placeholder='Select option'>
               <option value='option1'>Option 1</option>
               <option value='option2'>Option 2</option>
@@ -97,7 +103,7 @@ export default function Home(data) {
                 </TableContainer>
                 <br></br>
                 <Center>
-                <Button size='md' colorScheme='messenger' onClick={() => {
+                <Button size='md' shadow='base' bgColor="white" color='purple.500' onClick={() => {
                   getPosition().then((position) => {
                     const flat = position.coords.latitude
                     const flon = position.coords.longitude
@@ -118,7 +124,7 @@ export default function Home(data) {
           </ModalBody>
             <Center>
           <ModalFooter>
-            <Button colorScheme='messenger' onClick={() => {
+            <Button bgColor="#7928CA" color="white" onClick={() => {
               getPosition().then((position) => {
                 const flat = position.coords.latitude
                 const flon = position.coords.longitude
