@@ -139,11 +139,16 @@ export default function AdminDeleteEvents(props) {
                     onOpen();
                 }
                 }>
-                <option value='century-praza'>センチュリープラザ前イオン</option>
+                {/* <option value='century-praza'>センチュリープラザ前イオン</option>
                 <option value='erumu-praza'>えるむプラザ</option>
                 <option value='akasia-4'>あかしあ台4丁目</option>
                 <option value='sanda-municipal-hospital'>さんだ市民病院</option>
-                <option value='community-hall'>コミュニティホール前</option>
+                <option value='community-hall'>コミュニティホール前</option> */}
+                <option value='woody-central'>ウッディタウン中央</option>
+                <option value='woody-south'>南ウッディタウン</option>
+                <option value='akasia-chiku-center'>あかしあ台地区センター</option>
+                <option value='woody-simin-center'>ウッディタウン市民センター</option>
+                <option value='sanda-municipal-hospital'>三田市民病院</option>
             </Select>
                     
             <Modal size={'lg'} isOpen={isOpen} onClose={onClose} margin={5} motionPreset='slideInBottom'>
@@ -153,7 +158,8 @@ export default function AdminDeleteEvents(props) {
                 <ModalCloseButton />
                 <Divider/>
                 <ModalBody>
-                    {edata.events[deletePlace].map((item) => {
+                    {(deletePlace in edata.events ? 
+                    edata.events[deletePlace].map((item) => {
                         console.log(edata)
                         return (
                             <div key={item.title}>
@@ -174,11 +180,6 @@ export default function AdminDeleteEvents(props) {
                                         <Th>イベント日時：{item.date}</Th>
                                         </Tr>
                                     </Thead>
-                                    {/* <Thead>
-                                        <Tr>
-                                        <Th>for test：{item.eid}</Th>
-                                        </Tr>
-                                    </Thead> */}
                                     </Table>
                                 </TableContainer>
                                 <Center>
@@ -189,8 +190,11 @@ export default function AdminDeleteEvents(props) {
                             </div>
                         )
                         
-                    })}
-                    {/* {console.log(props)} */}
+                    }) : () => 
+                        {
+                            console.log(false)
+                        }
+                    )}
                     <Divider/>
                 </ModalBody>
       

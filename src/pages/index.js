@@ -103,7 +103,7 @@ export default function Home(data) {
                 </TableContainer>
                 <br></br>
                 <Center>
-                <Button size='md' bgColor="white" color='purple.500' onClick={() => {
+                <Button size='md' shadow='base' bgColor="white" color='purple.500' onClick={() => {
                   getPosition().then((position) => {
                     const flat = position.coords.latitude
                     const flon = position.coords.longitude

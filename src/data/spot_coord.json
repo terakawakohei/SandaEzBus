@@ -9,6 +9,6 @@
         "akasia-chiku-center":{"spot_name":"あかしあ台地区センター","bus_stop_name":"コミュニティホール前","longitude":135.18465071649052,"latitude":34.89817269714573},
         "woody-simin-center":{"spot_name":"ウッディタウン市民センター","bus_stop_name":"けやき台1丁目","longitude":135.18922354887678,"latitude":34.90738598922419},
         "sanda-municipal-hospital":{"spot_name":"三田市民病院前","bus_stop_name":"市民病院前","longitude":135.20059895321353,"latitude":34.906878742392465},
-        " ":{"spot_name":"","bus_stop_name":"","longitude":0,"latitude":0}
+        "":{"spot_name":"","bus_stop_name":"","longitude":0,"latitude":0}
     }
 }

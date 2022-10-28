@@ -66,11 +66,16 @@ export default function Admin() {
             <FormControl isInvalid={isPlace} isRequired marginBottom={5}>
               <FormLabel>開催場所</FormLabel>
               <Select placeholder='開催場所を選択してください' onChange={(e) => setPlace(e.target.value)} value={place}>
-                  <option value='century-praza'>センチュリープラザ前イオン</option>
+                  {/* <option value='century-praza'>センチュリープラザ前イオン</option>
                   <option value='erumu-praza'>えるむプラザ</option>
                   <option value='akasia-4'>あかしあ台4丁目</option>
                   <option value='sanda-municipal-hospital'>さんだ市民病院</option>
-                  <option value='community-hall'>コミュニティホール前</option>
+                  <option value='community-hall'>コミュニティホール前</option> */}
+                  <option value='woody-central'>ウッディタウン中央</option>
+                  <option value='woody-south'>南ウッディタウン</option>
+                  <option value='akasia-chiku-center'>あかしあ台地区センター</option>
+                  <option value='woody-simin-center'>ウッディタウン市民センター</option>
+                  <option value='sanda-municipal-hospital'>三田市民病院</option>
               </Select>
               {!isEvent ? (
                 <></>
