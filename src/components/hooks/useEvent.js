@@ -1,12 +1,20 @@
 import { useState } from 'react';
+import {
+  useDisclosure,
+} from '@chakra-ui/react'
 
 export const useEvent = () => {
   const [event, setEvent] = useState('');
   const [description, setDescription] = useState('');
   const [place, setPlace] = useState('');
-  const [date, setDate] = useState(new Date());
+  const [date, setDate] = useState('');
+  const {
+    isOpen: isVisible,
+    onClose,
+    onOpen,
+  } = useDisclosure({ defaultIsOpen: false })
 
-  const send = async () => {
+  const send = async ({}) => {
     const d = new Intl.DateTimeFormat("ja-jp", {
       year: "numeric",
       month: "2-digit",
@@ -16,20 +24,20 @@ export const useEvent = () => {
     }).format(date).replace(/\//g, '-');
     
 
-    await fetch('https://es4.eedept.kobe-u.ac.jp/ezbus/api/add', {
+    const status = await fetch('https://es4.eedept.kobe-u.ac.jp/ezbus/api/add', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
     },
     // dateはUTCに変換される
       body: JSON.stringify({title:event, date:d, sid:place, description: description}),
-    }).then(response => {
-        console.log(response.status)
-      
-    });
+
+    })
+
+    return status
   };
 
   return {
-    setEvent, setDescription, setPlace, date, setDate, send,
+    event, setEvent, description, setDescription, place, setPlace, date, setDate, send, isVisible, onClose, onOpen
   };
 };
