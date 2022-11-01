@@ -79,7 +79,8 @@ export default function Home(data) {
           <Divider />
           <ModalCloseButton />
           <ModalBody>
-            {data.events[spot].map((item) => {
+            {(spot in data.events ?
+            data.events[spot].map((item) => {
               return (
                 <div key={item.title}>
                   <TableContainer>
@@ -120,7 +121,11 @@ export default function Home(data) {
                   <Divider />
                 </div>
               )
-            })}
+            }) : () =>
+                {
+                  return(<></>)
+                }
+              )}
           </ModalBody>
           <Center>
             <ModalFooter>
