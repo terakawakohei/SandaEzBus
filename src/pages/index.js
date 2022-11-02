@@ -1,4 +1,4 @@
-import SvgMapOutlined20221028 from '../components/svg/MapOutlined20221028'
+import SvgMapOutlined20221102 from '../components/svg/MapOutlined20221102'
 import Link from 'next/link';
 import {
   Modal,
@@ -30,7 +30,7 @@ import spot_info from '../data/spot_coord.json' //spot_name, longtitude, latitud
 
 export default function Home(data) {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const [spot, setSpot] = useState('century-praza')
+  const [spot, setSpot] = useState('woody-central')
 
   var getPosition = function (options) {
     return new Promise(function (resolve, reject) {
@@ -47,7 +47,7 @@ export default function Home(data) {
   const sizes = ['xs', 'sm', 'md', 'lg', 'xl', 'full']
   return (
     <div>
-      <SvgMapOutlined20221028 onClickSpot={openModal} />
+      <SvgMapOutlined20221102 onClickSpot={openModal} />
       <Center>
         <Link href="/busstop">
           <Button w='80vw' h='20vh' margin="5px" boxShadow="lg" color="#7928CA" borderRadius="20px">
@@ -80,52 +80,51 @@ export default function Home(data) {
           <ModalCloseButton />
           <ModalBody>
             {(spot in data.events ?
-            data.events[spot].map((item) => {
-              return (
-                <div key={item.title}>
-                  <TableContainer>
-                    <Table size='md' variant='unstyled'>
-                      <Thead>
-                        <Tr>
-                          <Th>イベント名　：{item.title}</Th>
-                        </Tr>
-                      </Thead>
-                      <Thead>
-                        <Tr>
-                          <Th>イベント詳細：{item.description}</Th>
-                        </Tr>
-                      </Thead>
-                      <Thead>
-                        <Tr>
-                          <Th>イベント日時：{item.date}</Th>
-                        </Tr>
-                      </Thead>
-                    </Table>
-                  </TableContainer>
-                  <br></br>
-                  <Center>
-                    <Button size='md' shadow='base' bgColor="white" color='purple.500' onClick={() => {
-                      getPosition().then((position) => {
-                        const flat = position.coords.latitude
-                        const flon = position.coords.longitude
-                        const tlat = spot_info.spot[spot].latitude
-                        const tlon = spot_info.spot[spot].longitude
-                        const url = makeUrl(flat + "," + flon, tlat + "," + tlon, item.date)
-                        if (window.open(url, "_blank")) { } else {
-                          window.location.href = url
-                        }
-                      })
-                    }}>ここに行く</Button>
-                  </Center>
-                  <br></br>
-                  <Divider />
-                </div>
-              )
-            }) : () =>
-                {
-                  return(<></>)
-                }
-              )}
+              data.events[spot].map((item) => {
+                return (
+                  <div key={item.title}>
+                    <TableContainer>
+                      <Table size='md' variant='unstyled'>
+                        <Thead>
+                          <Tr>
+                            <Th>イベント名　：{item.title}</Th>
+                          </Tr>
+                        </Thead>
+                        <Thead>
+                          <Tr>
+                            <Th>イベント詳細：{item.description}</Th>
+                          </Tr>
+                        </Thead>
+                        <Thead>
+                          <Tr>
+                            <Th>イベント日時：{item.date}</Th>
+                          </Tr>
+                        </Thead>
+                      </Table>
+                    </TableContainer>
+                    <br></br>
+                    <Center>
+                      <Button size='md' shadow='base' bgColor="white" color='purple.500' onClick={() => {
+                        getPosition().then((position) => {
+                          const flat = position.coords.latitude
+                          const flon = position.coords.longitude
+                          const tlat = spot_info.spot[spot].latitude
+                          const tlon = spot_info.spot[spot].longitude
+                          const url = makeUrl(flat + "," + flon, tlat + "," + tlon, item.date)
+                          if (window.open(url, "_blank")) { } else {
+                            window.location.href = url
+                          }
+                        })
+                      }}>ここに行く</Button>
+                    </Center>
+                    <br></br>
+                    <Divider />
+                  </div>
+                )
+              }) : () => {
+                return (<></>)
+              }
+            )}
           </ModalBody>
           <Center>
             <ModalFooter>
