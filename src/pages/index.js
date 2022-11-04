@@ -84,7 +84,7 @@ export default function Home(data) {
                 return (
                   <div key={item.title}>
                     <TableContainer>
-                      <Table size='md' variant='unstyled'>
+                      <Table size='lg' variant='unstyled'>
                         <Thead>
                           <Tr>
                             <Th>イベント名　：{item.title}</Th>
